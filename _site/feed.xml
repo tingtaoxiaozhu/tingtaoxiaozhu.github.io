@@ -1,159 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-23T20:54:01+08:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">鼠须管编译手记</title><link href="http://localhost:4000/rime/2019/06/21/025.squirrel.html" rel="alternate" type="text/html" title="鼠须管编译手记" /><published>2019-06-21T00:00:00+08:00</published><updated>2019-06-21T00:00:00+08:00</updated><id>http://localhost:4000/rime/2019/06/21/025.squirrel</id><content type="html" xml:base="http://localhost:4000/rime/2019/06/21/025.squirrel.html">## 依赖包
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-23T20:59:12+08:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">鼠须管编译手记</title><link href="http://localhost:4000/rime/2019/06/21/025.squirrel.html" rel="alternate" type="text/html" title="鼠须管编译手记" /><published>2019-06-21T00:00:00+08:00</published><updated>2019-06-21T00:00:00+08:00</updated><id>http://localhost:4000/rime/2019/06/21/025.squirrel</id><content type="html" xml:base="http://localhost:4000/rime/2019/06/21/025.squirrel.html">&lt;h2 id=&quot;依赖包&quot;&gt;依赖包&lt;/h2&gt;
 
-先去资源库「小工具」下面，下载「依赖包.zip」。
-这是 librime 所需要的第三方依赖，解压一看就明白了，就是一堆相关的源代码包。
+&lt;p&gt;先去资源库「小工具」下面，下载「依赖包.zip」。
+这是 librime 所需要的第三方依赖，解压一看就明白了，就是一堆相关的源代码包。&lt;/p&gt;
 
-## VPN工具
+&lt;h2 id=&quot;vpn工具&quot;&gt;VPN工具&lt;/h2&gt;
 
-在用 homebrew 包管理器安装 boost 库时，如果不用梯子，可能有下载不完整的问题。
+&lt;p&gt;在用 homebrew 包管理器安装 boost 库时，如果不用梯子，可能有下载不完整的问题。&lt;/p&gt;
 
-## 包管理器
+&lt;h2 id=&quot;包管理器&quot;&gt;包管理器&lt;/h2&gt;
 
-使用 homebrew 包管理器，在终端中用下述命令安装到本机：
+&lt;p&gt;使用 homebrew 包管理器，在终端中用下述命令安装到本机：&lt;/p&gt;
 
-``````
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-出现下述提示，按 Enter 确认：
+&lt;p&gt;出现下述提示，按 Enter 确认：&lt;/p&gt;
 
-``````
-Press RETURN to continue or any other key to abort
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Press RETURN to continue or any other key to abort
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-包管理器，可以让 MacOS 像 Linux 那样方便地安装、使用编译工具链。
+&lt;p&gt;包管理器，可以让 MacOS 像 Linux 那样方便地安装、使用编译工具链。&lt;/p&gt;
 
-## Git &amp; Cmake
+&lt;h2 id=&quot;git--cmake&quot;&gt;Git &amp;amp; Cmake&lt;/h2&gt;
 
-``````
-brew install cmake git
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install cmake git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-## OpenCC
+&lt;h2 id=&quot;opencc&quot;&gt;OpenCC&lt;/h2&gt;
 
-https://github.com/BYVoid/OpenCC
+&lt;p&gt;https://github.com/BYVoid/OpenCC&lt;/p&gt;
 
-「Clone or download」-「Download ZIP」 
+&lt;p&gt;「Clone or download」-「Download ZIP」&lt;/p&gt;
 
-下载 OpenCC 包并编译，独立使用它。
+&lt;p&gt;下载 OpenCC 包并编译，独立使用它。&lt;/p&gt;
 
-解压进入它的根目录，新建一个「build」文件夹。
+&lt;p&gt;解压进入它的根目录，新建一个「build」文件夹。
 在「build」文件夹上，「右键」-「新建位于文件夹位置的终端窗口」。
-完成从「终端」进入到「build」之后：
+完成从「终端」进入到「build」之后：&lt;/p&gt;
 
-``````
-cmake ..
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmake ..
 make
 sudo make install
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-## 制作OCD
+&lt;h2 id=&quot;制作ocd&quot;&gt;制作OCD&lt;/h2&gt;
 
-准备好 opencc 文件，从终端进入到 txt 格式的 opencc 文件所在位置。
+&lt;p&gt;准备好 opencc 文件，从终端进入到 txt 格式的 opencc 文件所在位置。&lt;/p&gt;
 
-&gt; MacOS 比较蠢，比较反人类，需要在文件夹上点开右键，才有以终端进入其中的入口
+&lt;blockquote&gt;
+  &lt;p&gt;MacOS 比较蠢，比较反人类，需要在文件夹上点开右键，才有以终端进入其中的入口&lt;/p&gt;
+&lt;/blockquote&gt;
 
-仿写转制命令，制作出 MacOS 专属的 OCD 二进制文件：
+&lt;p&gt;仿写转制命令，制作出 MacOS 专属的 OCD 二进制文件：&lt;/p&gt;
 
-``````
-opencc_dict -i 98wb_spelling_rk.txt -o 98wb_spelling_rk.ocd -f text -t ocd
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;opencc_dict -i 98wb_spelling_rk.txt -o 98wb_spelling_rk.ocd -f text -t ocd
 opencc_dict -i 98wb_spelling.txt -o 98wb_spelling.ocd -f text -t ocd
 opencc_dict -i jiayin.txt -o jiayin.ocd -f text -t ocd
 opencc_dict -i STCharacters.txt -o STCharacters.ocd -f text -t ocd
 opencc_dict -i STPhrases.txt -o STPhrases.ocd -f text -t ocd
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-## BOOST 
+&lt;h2 id=&quot;boost&quot;&gt;BOOST&lt;/h2&gt;
 
-- 安装 boost-1.60
+&lt;ul&gt;
+  &lt;li&gt;安装 boost-1.60&lt;/li&gt;
+&lt;/ul&gt;
 
-``````
-brew install boost@1.60
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install boost@1.60
 brew reinstall boost@1.60
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-不管有没有 boost@1.60 ,用上述命令「安装&amp;重装」一次，安装过程中，注意盯着终端信息，如有下载不完整的提示，及时「control + C」，并重试。
+&lt;p&gt;不管有没有 boost@1.60 ,用上述命令「安装&amp;amp;重装」一次，安装过程中，注意盯着终端信息，如有下载不完整的提示，及时「control + C」，并重试。&lt;/p&gt;
 
-- 写入环境变量，终端输入
+&lt;ul&gt;
+  &lt;li&gt;写入环境变量，终端输入&lt;/li&gt;
+&lt;/ul&gt;
 
-``````
-export LDFLAGS=&quot;-L/usr/local/opt/boost@1.60/lib&quot;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export LDFLAGS=&quot;-L/usr/local/opt/boost@1.60/lib&quot;
 export CPPFLAGS=&quot;-I/usr/local/opt/boost@1.60/include&quot;
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-- 重置 boost-link
+&lt;ul&gt;
+  &lt;li&gt;重置 boost-link&lt;/li&gt;
+&lt;/ul&gt;
 
-``````
-brew link --force boost@1.60
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew link --force boost@1.60
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-## 代码树
+&lt;h2 id=&quot;代码树&quot;&gt;代码树&lt;/h2&gt;
 
-- Librime
+&lt;ul&gt;
+  &lt;li&gt;Librime&lt;/li&gt;
+&lt;/ul&gt;
 
-https://github.com/rime/librime/releases/tag/1.5.2
+&lt;p&gt;https://github.com/rime/librime/releases/tag/1.5.2&lt;/p&gt;
 
-- Plum
+&lt;ul&gt;
+  &lt;li&gt;Plum&lt;/li&gt;
+&lt;/ul&gt;
 
-https://github.com/rime/plum
+&lt;p&gt;https://github.com/rime/plum&lt;/p&gt;
 
-- Squirrel
+&lt;ul&gt;
+  &lt;li&gt;Squirrel&lt;/li&gt;
+&lt;/ul&gt;
 
-https://github.com/rime/squirrel/releases/tag/0.13.0
+&lt;p&gt;https://github.com/rime/squirrel/releases/tag/0.13.0&lt;/p&gt;
 
+&lt;h4 id=&quot;直取最新代码&quot;&gt;直取最新代码&lt;/h4&gt;
 
-#### 直取最新代码
+&lt;p&gt;3 大基本组件，按逻辑关系放好，也就是需要手动往 librime 和 plum 文件夹下拷入对应代码。&lt;/p&gt;
 
-3 大基本组件，按逻辑关系放好，也就是需要手动往 librime 和 plum 文件夹下拷入对应代码。
+&lt;p&gt;之所以没有使用 git 拉取，是因为鼠须管上现在使用 Git 管理的代码指向关系停留在 Squirrel v0.12.0 和 librime v 1.5.1 上。
+一旦使用 Git 拉取代码，拿到的就是有 bug 的旧代码，编译完之后还得升级，你说丧气不丧气。&lt;/p&gt;
 
-之所以没有使用 git 拉取，是因为鼠须管上现在使用 Git 管理的代码指向关系停留在 Squirrel v0.12.0 和 librime v 1.5.1 上。
-一旦使用 Git 拉取代码，拿到的就是有 bug 的旧代码，编译完之后还得升级，你说丧气不丧气。
+&lt;h4 id=&quot;补齐-librime-依赖&quot;&gt;补齐 librime 依赖&lt;/h4&gt;
 
-#### 补齐 librime 依赖
+&lt;p&gt;将开始时从资源库里下载到的「依赖包.zip」，解压合并到「librime/thirdparty/src/」下面。&lt;/p&gt;
 
-将开始时从资源库里下载到的「依赖包.zip」，解压合并到「librime/thirdparty/src/」下面。
+&lt;h4 id=&quot;补齐-plugins&quot;&gt;补齐 plugins&lt;/h4&gt;
 
-#### 补齐 plugins
+&lt;p&gt;用终端进入到「librime/plugins」下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/98wb/librime-lua.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;当然，资源库的小工具里，也放有一份的。&lt;/p&gt;
 
-用终端进入到「librime/plugins」下：
-``````
-git clone https://github.com/98wb/librime-lua.git
-``````
-当然，资源库的小工具里，也放有一份的。
+&lt;h4 id=&quot;备份代码树&quot;&gt;备份代码树&lt;/h4&gt;
 
-#### 备份代码树
+&lt;p&gt;通过手动下载最新的 3 大组件代码包，并对 librime 的「thirdparty/src」和「plugins」手动补齐，现在本地已有了「完整」的代码目录。
+这个「完整」的代码目录很重要，未来版本升级时，只需要下载&lt;a href=&quot;https://github.com/rime/librime/releases&quot;&gt;「releases」&lt;/a&gt;界面的 &lt;a href=&quot;https://github.com/rime/librime/archive/1.5.2.zip&quot;&gt;Source code (zip)&lt;/a&gt;，并对本地的同级代码进行「覆盖」替换，就能重新编译新版。&lt;/p&gt;
 
-通过手动下载最新的 3 大组件代码包，并对 librime 的「thirdparty/src」和「plugins」手动补齐，现在本地已有了「完整」的代码目录。
-这个「完整」的代码目录很重要，未来版本升级时，只需要下载[「releases」](https://github.com/rime/librime/releases)界面的 [Source code (zip)](https://github.com/rime/librime/archive/1.5.2.zip)，并对本地的同级代码进行「覆盖」替换，就能重新编译新版。
+&lt;p&gt;GitHub 上的&lt;a href=&quot;https://github.com/rime/librime/releases&quot;&gt;「releases」&lt;/a&gt;界面，都有统一的入口，不同的组件有不同的「releases」发布页，截止目前，librime 已有「22 releases」。&lt;/p&gt;
 
-GitHub 上的[「releases」](https://github.com/rime/librime/releases)界面，都有统一的入口，不同的组件有不同的「releases」发布页，截止目前，librime 已有「22 releases」。
+&lt;p&gt;尽量不要以「Clone or download」-「Download ZIP」 的方式下载代码，除非在这个界面上的时间线里能看到最新的改动。以「Squrirrel」为例，用这样方式下载，得到的就是 v 0.12.0，但是 releases 下的是 v 0.13.0，编译好了还得升级，那编译就没意义了。&lt;/p&gt;
 
-尽量不要以「Clone or download」-「Download ZIP」 的方式下载代码，除非在这个界面上的时间线里能看到最新的改动。以「Squrirrel」为例，用这样方式下载，得到的就是 v 0.12.0，但是 releases 下的是 v 0.13.0，编译好了还得升级，那编译就没意义了。
+&lt;ul&gt;
+  &lt;li&gt;版本拉高 2 个版次&lt;/li&gt;
+&lt;/ul&gt;
 
-- 版本拉高 2 个版次
+&lt;p&gt;打开 vscode，用「⌘ + O」快捷键打开「Squirrel/Info.plist」，在 &lt;a href=&quot;https://github.com/rime/squirrel/blob/master/Info.plist&quot;&gt;它&lt;/a&gt; 的下面，有如下字段是定义版本的：&lt;/p&gt;
 
-打开 vscode，用「⌘ + O」快捷键打开「Squirrel/Info.plist」，在 [它](https://github.com/rime/squirrel/blob/master/Info.plist) 的下面，有如下字段是定义版本的：
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;string&amp;gt;0.13.0&amp;lt;/string&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-``````
-&lt;string&gt;0.13.0&lt;/string&gt;
-``````
+&lt;p&gt;我们把它改为「0.15.0」，比官方默认的数字高 2 个版本。这样可以防止佛振忽然升级，因为未来的中州韵核心引擎的升级主要与音码有关，如果它存在着形码方面的 bug ，会给使用我们包的所有人带来困扰。
+而我们也能留出空白的时间，去测试 librime 内核，在确认它正常之后，再推更高 2 个版本的新包。&lt;/p&gt;
 
-我们把它改为「0.15.0」，比官方默认的数字高 2 个版本。这样可以防止佛振忽然升级，因为未来的中州韵核心引擎的升级主要与音码有关，如果它存在着形码方面的 bug ，会给使用我们包的所有人带来困扰。
-而我们也能留出空白的时间，去测试 librime 内核，在确认它正常之后，再推更高 2 个版本的新包。
+&lt;ul&gt;
+  &lt;li&gt;空目录警告&lt;/li&gt;
+&lt;/ul&gt;
 
-- 空目录警告
+&lt;p&gt;从网上下载过来的「Squirrel」代码包，解压之后，它下面有「librime」和「plum」的&lt;strong&gt;空文件&lt;/strong&gt;。
+如果用它覆盖本地同级目录，「librime」和「plum」这两个&lt;strong&gt;空文件&lt;/strong&gt;，会取代你之前的「librime」和「plum」。
+MacOS 是个十分愚蠢的操作系统，它并不像 windows 那样，用&lt;strong&gt;空文件&lt;/strong&gt;覆盖有内容的文件夹时，提供「合并」的选项。
+如果有更新 Squirrel 版本的需求，切记先把其中的「librime」和「plum」这两个&lt;strong&gt;空文件&lt;/strong&gt;夹删掉，再覆盖到本地。&lt;/p&gt;
 
-从网上下载过来的「Squirrel」代码包，解压之后，它下面有「librime」和「plum」的**空文件**。
-如果用它覆盖本地同级目录，「librime」和「plum」这两个**空文件**，会取代你之前的「librime」和「plum」。
-MacOS 是个十分愚蠢的操作系统，它并不像 windows 那样，用**空文件**覆盖有内容的文件夹时，提供「合并」的选项。
-如果有更新 Squirrel 版本的需求，切记先把其中的「librime」和「plum」这两个**空文件**夹删掉，再覆盖到本地。
+&lt;h2 id=&quot;编译&quot;&gt;编译&lt;/h2&gt;
 
-## 编译
+&lt;p&gt;从终端进入「Squirrel」文件夹下，方式就是在「Squirrel」文件夹下「右键」-「新建位于文件夹位置的终端窗口」。&lt;/p&gt;
 
-从终端进入「Squirrel」文件夹下，方式就是在「Squirrel」文件夹下「右键」-「新建位于文件夹位置的终端窗口」。
-
-``````
-sudo xcode-select --reset
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo xcode-select --reset
 xcode-select --install
 curl -fsSL https://git.io/rime-install | bash -s -- :preset
 cd librime
@@ -165,354 +171,417 @@ bash rime-install :preset
 cd ..
 make deps
 make
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-最终，在「Squirrel」文件夹这个代码主目录下，有「build/Release/Squirrel.app」，在「Squirrel.app」上右键：
+&lt;p&gt;最终，在「Squirrel」文件夹这个代码主目录下，有「build/Release/Squirrel.app」，在「Squirrel.app」上右键：&lt;/p&gt;
 
-&gt; 显示包内容
+&lt;blockquote&gt;
+  &lt;p&gt;显示包内容&lt;/p&gt;
+&lt;/blockquote&gt;
 
-进入「Contents/SharedSupport」下，为所欲为一番。
+&lt;p&gt;进入「Contents/SharedSupport」下，为所欲为一番。&lt;/p&gt;
 
-发泄完毕之后，在「Squirrel」文件夹这个代码主目录下，有「package」，这个是封包脚本存放处。从终端进入它里面：
+&lt;p&gt;发泄完毕之后，在「Squirrel」文件夹这个代码主目录下，有「package」，这个是封包脚本存放处。从终端进入它里面：&lt;/p&gt;
 
-``````
-./make_package
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./make_package
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-然后，将会生成「Squirrel.pkg」，这是安装包。
+&lt;p&gt;然后，将会生成「Squirrel.pkg」，这是安装包。&lt;/p&gt;
 
-由于编译进了 librime-lua，所以支持 rime.lua 脚本。
+&lt;p&gt;由于编译进了 librime-lua，所以支持 rime.lua 脚本。&lt;/p&gt;
 
-但是，需要手动将它添加到「用户文件夹」下使用。
+&lt;p&gt;但是，需要手动将它添加到「用户文件夹」下使用。&lt;/p&gt;
 
-理论上应该可以在「make_package」这个步骤时，做一次性封包，在当前登录用户的资源库目录下，生成「Rime」这个用户文件夹，然后放入「rime.lua」。
-这样就实现了在安装主程序时，同时做好 lua 脚本的配置工作。
+&lt;p&gt;理论上应该可以在「make_package」这个步骤时，做一次性封包，在当前登录用户的资源库目录下，生成「Rime」这个用户文件夹，然后放入「rime.lua」。
+这样就实现了在安装主程序时，同时做好 lua 脚本的配置工作。&lt;/p&gt;
 
-但是，对于 MacOS 的 Pkg 封包步聚，我是真的不懂。
+&lt;p&gt;但是，对于 MacOS 的 Pkg 封包步聚，我是真的不懂。&lt;/p&gt;
 
-## 文件列表
+&lt;h2 id=&quot;文件列表&quot;&gt;文件列表&lt;/h2&gt;
 
-所以，98五笔资源库中，对于「鼠须管」的维护，文件清单是以下 3 个：
+&lt;p&gt;所以，98五笔资源库中，对于「鼠须管」的维护，文件清单是以下 3 个：&lt;/p&gt;
 
-- 98WB-0.otf
-- Squirrel.pkg
-- rime.lua</content><author><name></name></author><summary type="html">源码编译鼠须管</summary></entry><entry><title type="html">为什么选了小米平板</title><link href="http://localhost:4000/miui/2019/06/14/022.mipad.html" rel="alternate" type="text/html" title="为什么选了小米平板" /><published>2019-06-14T00:00:00+08:00</published><updated>2019-06-14T00:00:00+08:00</updated><id>http://localhost:4000/miui/2019/06/14/022.mipad</id><content type="html" xml:base="http://localhost:4000/miui/2019/06/14/022.mipad.html">## 用途
+&lt;ul&gt;
+  &lt;li&gt;98WB-0.otf&lt;/li&gt;
+  &lt;li&gt;Squirrel.pkg&lt;/li&gt;
+  &lt;li&gt;rime.lua&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">源码编译鼠须管</summary></entry><entry><title type="html">为什么选了小米平板</title><link href="http://localhost:4000/miui/2019/06/14/022.mipad.html" rel="alternate" type="text/html" title="为什么选了小米平板" /><published>2019-06-14T00:00:00+08:00</published><updated>2019-06-14T00:00:00+08:00</updated><id>http://localhost:4000/miui/2019/06/14/022.mipad</id><content type="html" xml:base="http://localhost:4000/miui/2019/06/14/022.mipad.html">&lt;h2 id=&quot;用途&quot;&gt;用途&lt;/h2&gt;
 
-很多人空泛地谈「安卓平板」生态不好，其实这是个伪命题。
+&lt;p&gt;很多人空泛地谈「安卓平板」生态不好，其实这是个伪命题。&lt;/p&gt;
 
-如果说「生态」是指常用 app 的专版适配，那是毫无疑问的，但这种意义上的生态好到类似 windows ，恐怕是另一种形式的灾难。
+&lt;p&gt;如果说「生态」是指常用 app 的专版适配，那是毫无疑问的，但这种意义上的生态好到类似 windows ，恐怕是另一种形式的灾难。&lt;/p&gt;
 
-其实这个灾难不是没有发生过，早期的安卓，腾讯、360、金山、百度手机助手，各式全家桶真是让人无比反胃。
+&lt;p&gt;其实这个灾难不是没有发生过，早期的安卓，腾讯、360、金山、百度手机助手，各式全家桶真是让人无比反胃。&lt;/p&gt;
 
-实际上，不止「安卓平板」专版适配量不多，iPad 也就那么回事。我觉得谈硬件的意义，更重要地是它能「干什么」。
+&lt;p&gt;实际上，不止「安卓平板」专版适配量不多，iPad 也就那么回事。我觉得谈硬件的意义，更重要地是它能「干什么」。&lt;/p&gt;
 
-- 输入法工具
+&lt;ul&gt;
+  &lt;li&gt;输入法工具&lt;/li&gt;
+&lt;/ul&gt;
 
-对于我等形码用户，输入法工具是排在第一位的。没有健全输入法 API 的系统，对于习惯了高效率文字输出的形码用户，完全是不可忍受的致命缺陷。
-WP 系统已经作古，iOS 至今不可以在外接键盘时，调用第三方输入法软件，其实这个系统也仅是到了 iOS8 时，才官方加入了第三方输入法软件的 API 适配接口。这真让人郁闷，如果连最基本的文字输入都让人抓狂，你硬件再精美又有何用呢？
+&lt;p&gt;对于我等形码用户，输入法工具是排在第一位的。没有健全输入法 API 的系统，对于习惯了高效率文字输出的形码用户，完全是不可忍受的致命缺陷。
+WP 系统已经作古，iOS 至今不可以在外接键盘时，调用第三方输入法软件，其实这个系统也仅是到了 iOS8 时，才官方加入了第三方输入法软件的 API 适配接口。这真让人郁闷，如果连最基本的文字输入都让人抓狂，你硬件再精美又有何用呢？&lt;/p&gt;
 
-在这方面，安卓一直是开放的，健全的 API 意味着它是真正的操作系统，也因此，安卓有着准 PC 系统的潜质。
+&lt;p&gt;在这方面，安卓一直是开放的，健全的 API 意味着它是真正的操作系统，也因此，安卓有着准 PC 系统的潜质。&lt;/p&gt;
 
-- 播放器工具
+&lt;ul&gt;
+  &lt;li&gt;播放器工具&lt;/li&gt;
+&lt;/ul&gt;
 
-不论是 PC 上还是各种移动设备上，硬件解码都已非常普及。50% 亮度及声音下，小米平板4 可以连续播放 1080P 本地视频 9小时以上。这是很可观的，实测了它在这方面的能耗比之后，我果断为它添置了三星 256G TF 卡。爆吹 VLC，爱你一万年。
+&lt;p&gt;不论是 PC 上还是各种移动设备上，硬件解码都已非常普及。50% 亮度及声音下，小米平板4 可以连续播放 1080P 本地视频 9小时以上。这是很可观的，实测了它在这方面的能耗比之后，我果断为它添置了三星 256G TF 卡。爆吹 VLC，爱你一万年。&lt;/p&gt;
 
-- 资料阅读
+&lt;ul&gt;
+  &lt;li&gt;资料阅读&lt;/li&gt;
+&lt;/ul&gt;
 
-知网上订了十几份期刊，多看阅读上也买了一些有用的书籍资料，离线 PDF 阅读工具也俱备。如果单纯的作阅读，持继亮屏能有 10 小时以上的续航时间，这真的非常理想。
+&lt;p&gt;知网上订了十几份期刊，多看阅读上也买了一些有用的书籍资料，离线 PDF 阅读工具也俱备。如果单纯的作阅读，持继亮屏能有 10 小时以上的续航时间，这真的非常理想。&lt;/p&gt;
 
-- 数据中心
+&lt;ul&gt;
+  &lt;li&gt;数据中心&lt;/li&gt;
+&lt;/ul&gt;
 
-基于 256 G 的 TF 卡，用它作为随身移动的数据中心是非常理想的。拥有完善的「文件管理器系统」，这是安卓比 iOS 好的另一个地方。百度云、坚果云、为知笔记，它们不仅可以随意跨平台同步文档资料，还能下拉或上传各种格式的视听文件。
+&lt;p&gt;基于 256 G 的 TF 卡，用它作为随身移动的数据中心是非常理想的。拥有完善的「文件管理器系统」，这是安卓比 iOS 好的另一个地方。百度云、坚果云、为知笔记，它们不仅可以随意跨平台同步文档资料，还能下拉或上传各种格式的视听文件。&lt;/p&gt;
 
-- Wi-Fi Direct
+&lt;ul&gt;
+  &lt;li&gt;Wi-Fi Direct&lt;/li&gt;
+&lt;/ul&gt;
 
-在小米平板的文件管理器中，有「远程管理」，开启即可以 FTP 的模式直接管理平板储存卡中的一切文件。这也是 iOS 设备不可想象的。因为它通过这个协议直通内置 SD 卡，不限制前端管理者的入口，随便什么系统，随便什么设备，只要在文件管理器的路径中输入 MIUI 生成的路径，就可以全权管理一切。配合这个，「数据中心」才成了真正意义上的「便捷高效」与「功能强大」两者兼得的存在。
+&lt;p&gt;在小米平板的文件管理器中，有「远程管理」，开启即可以 FTP 的模式直接管理平板储存卡中的一切文件。这也是 iOS 设备不可想象的。因为它通过这个协议直通内置 SD 卡，不限制前端管理者的入口，随便什么系统，随便什么设备，只要在文件管理器的路径中输入 MIUI 生成的路径，就可以全权管理一切。配合这个，「数据中心」才成了真正意义上的「便捷高效」与「功能强大」两者兼得的存在。&lt;/p&gt;
 
-- Wi-Fi Display
+&lt;ul&gt;
+  &lt;li&gt;Wi-Fi Display&lt;/li&gt;
+&lt;/ul&gt;
 
-PPT 投影，视频、图片投影，不仅图像可以投，音频声道同步传送。各种盒子，各种智能电视，各种较新的投影仪，甚至 Win10 电脑……
+&lt;p&gt;PPT 投影，视频、图片投影，不仅图像可以投，音频声道同步传送。各种盒子，各种智能电视，各种较新的投影仪，甚至 Win10 电脑……&lt;/p&gt;
 
-我不知道你有没有用过，但是我经常开会时使用它。这个功能其实并非新的，早在 MIUIV5 时代，就已经成熟了。比较一下 iOS 设备，功能实现限制在自家的私有协议 airplay 中。你想用 iphone 连接投影仪，先买一套 APPLE TV 吧，即使第三方使用 WIFI 数据流中转勉强实现对接，那个延迟非常严重。与硬件协议实现的 Wi-Fi Display 之间设备的连通性能比，不可同日而语。
+&lt;p&gt;我不知道你有没有用过，但是我经常开会时使用它。这个功能其实并非新的，早在 MIUIV5 时代，就已经成熟了。比较一下 iOS 设备，功能实现限制在自家的私有协议 airplay 中。你想用 iphone 连接投影仪，先买一套 APPLE TV 吧，即使第三方使用 WIFI 数据流中转勉强实现对接，那个延迟非常严重。与硬件协议实现的 Wi-Fi Display 之间设备的连通性能比，不可同日而语。&lt;/p&gt;
 
-- 体积
+&lt;ul&gt;
+  &lt;li&gt;体积&lt;/li&gt;
+&lt;/ul&gt;
 
-大屏当然更爽，可是便携性真的更重要一些。其实 iPad 从纯硬件上说，是真的不错，可是它不是真正的智能设备，它的系统太过残缺必要的 API 和文管框架。逐渐缩水的平板市场也表明，真正的娱乐终端是手机。还是那个观点，我觉得平板应当回归它最基本的用途，在我的使用场景里，各个专业情境下需求的功能都是满足的。出差，开会，露营，野游，甚至公园里散步，带着它都非常便利。作为笔记本的替代品，我觉得它确实给我的生活添了很多幸福感。
+&lt;p&gt;大屏当然更爽，可是便携性真的更重要一些。其实 iPad 从纯硬件上说，是真的不错，可是它不是真正的智能设备，它的系统太过残缺必要的 API 和文管框架。逐渐缩水的平板市场也表明，真正的娱乐终端是手机。还是那个观点，我觉得平板应当回归它最基本的用途，在我的使用场景里，各个专业情境下需求的功能都是满足的。出差，开会，露营，野游，甚至公园里散步，带着它都非常便利。作为笔记本的替代品，我觉得它确实给我的生活添了很多幸福感。&lt;/p&gt;
 
-## APP
+&lt;h2 id=&quot;app&quot;&gt;APP&lt;/h2&gt;
 
-- 坚果云
+&lt;ul&gt;
+  &lt;li&gt;坚果云&lt;/li&gt;
+&lt;/ul&gt;
 
-生在这个时代，有一些东西你是必须要享受的，云服务就是。
+&lt;p&gt;生在这个时代，有一些东西你是必须要享受的，云服务就是。
 它的好处自不待言，一旦用上再难回头。
 它本该像坐公交刷卡、去超市结帐一样天经地义，但是我们常常忘掉这一点，导致很多企业在早期烧过钱之后，便无以为继，纷纷倒掉。
 坚果云是活下来的一个，它适配了所有系统，支持增量同步，牛得一逼。
-我常用它储存工作方面的东西。
+我常用它储存工作方面的东西。&lt;/p&gt;
 
-- 百度云
+&lt;ul&gt;
+  &lt;li&gt;百度云&lt;/li&gt;
+&lt;/ul&gt;
 
-不必说限速问题，一年的年费才一百四十块钱，可能是这个星球上最便宜的云，付费用户日常满灌，字幕组追新剧，Download 一下，1080P高清，音画俱美，人生真是圆满啊。
+&lt;p&gt;不必说限速问题，一年的年费才一百四十块钱，可能是这个星球上最便宜的云，付费用户日常满灌，字幕组追新剧，Download 一下，1080P高清，音画俱美，人生真是圆满啊。&lt;/p&gt;
 
-- 小米云
+&lt;ul&gt;
+  &lt;li&gt;小米云&lt;/li&gt;
+&lt;/ul&gt;
 
-家里人分享照片，共用相册，回家连到路由器时，小米路由器会自动将照片备份到它连着的硬盘中，很好很强大。
+&lt;p&gt;家里人分享照片，共用相册，回家连到路由器时，小米路由器会自动将照片备份到它连着的硬盘中，很好很强大。&lt;/p&gt;
 
-- 为知笔记
+&lt;ul&gt;
+  &lt;li&gt;为知笔记&lt;/li&gt;
+&lt;/ul&gt;
 
-各种设备，各种全平台，都有适配的客户端。为知笔记已经放弃招揽免费用户了，生存不容易。我从 2008 年开始知道这家企业，从 WebCatcher 到现在的为知笔记，技术水准和产品想法都是业界楷模。学习的笔记，生活的杂七杂八，一直都存在为知上，而且他们特懂用户，知道你可能会担心数据安全问题，有一键导出跑路的功能，所以大胆付费大胆用，随时可以无痛跑路。
+&lt;p&gt;各种设备，各种全平台，都有适配的客户端。为知笔记已经放弃招揽免费用户了，生存不容易。我从 2008 年开始知道这家企业，从 WebCatcher 到现在的为知笔记，技术水准和产品想法都是业界楷模。学习的笔记，生活的杂七杂八，一直都存在为知上，而且他们特懂用户，知道你可能会担心数据安全问题，有一键导出跑路的功能，所以大胆付费大胆用，随时可以无痛跑路。&lt;/p&gt;
 
-- WPS
+&lt;ul&gt;
+  &lt;li&gt;WPS&lt;/li&gt;
+&lt;/ul&gt;
 
-可能在 PC 上表现一般，但是在安卓上，业界良心，用了就知道。
+&lt;p&gt;可能在 PC 上表现一般，但是在安卓上，业界良心，用了就知道。&lt;/p&gt;
 
-- VLC
+&lt;ul&gt;
+  &lt;li&gt;VLC&lt;/li&gt;
+&lt;/ul&gt;
 
-全能，强悍，无敌。
+&lt;p&gt;全能，强悍，无敌。&lt;/p&gt;
 
-## 图集
+&lt;h2 id=&quot;图集&quot;&gt;图集&lt;/h2&gt;
 
-- 蓝牙键盘
+&lt;ul&gt;
+  &lt;li&gt;蓝牙键盘&lt;/li&gt;
+&lt;/ul&gt;
 
-几年前在小猪的安利下，买了苹果 iMac 的配件「apple wireless keyboard」，488块，用了很多年了，依然如新。
-蓝牙键盘是真的推荐，否则小米平板固有安卓系统优势就被限制了。它能提供 10 小时左右的持续亮屏时长，足够你跟任何人交流任何事，写任意长篇幅的文档，读任意类别的文献资料，直到你困得睁不开眼。
+&lt;p&gt;几年前在小猪的安利下，买了苹果 iMac 的配件「apple wireless keyboard」，488块，用了很多年了，依然如新。
+蓝牙键盘是真的推荐，否则小米平板固有安卓系统优势就被限制了。它能提供 10 小时左右的持续亮屏时长，足够你跟任何人交流任何事，写任意长篇幅的文档，读任意类别的文献资料，直到你困得睁不开眼。&lt;/p&gt;
 
-- 鼠标
+&lt;ul&gt;
+  &lt;li&gt;鼠标&lt;/li&gt;
+&lt;/ul&gt;
 
-罗技 M720，可以同时连入三种设备，非常科学合理地安排了三个切换键，平板在侧，电脑在前，切换自如。
+&lt;p&gt;罗技 M720，可以同时连入三种设备，非常科学合理地安排了三个切换键，平板在侧，电脑在前，切换自如。&lt;/p&gt;
 
-- 98五笔同文版
+&lt;ul&gt;
+  &lt;li&gt;98五笔同文版&lt;/li&gt;
+&lt;/ul&gt;
 
-以前的打字模式是底部有条候选框，但现在悬浮了起来，与电脑无异，比 iOS 更进两步，不仅第三方输入法接口健全，而且可以悬浮跟随。
+&lt;p&gt;以前的打字模式是底部有条候选框，但现在悬浮了起来，与电脑无异，比 iOS 更进两步，不仅第三方输入法接口健全，而且可以悬浮跟随。&lt;/p&gt;
 
-- 一千四
+&lt;ul&gt;
+  &lt;li&gt;一千四&lt;/li&gt;
+&lt;/ul&gt;
 
-够便宜，出了新品，咱们换着也不肉疼。
+&lt;p&gt;够便宜，出了新品，咱们换着也不肉疼。&lt;/p&gt;
 
-![pic]({{site.url}}/pics/mipad/mipad1.jpg)
-![pic]({{site.url}}/pics/mipad/mipad2.jpg)
-![pic]({{site.url}}/pics/mipad/mipad3.jpg)
-![pic]({{site.url}}/pics/mipad/mipad4.jpg)
-![pic]({{site.url}}/pics/mipad/mipad5.jpg)
-![pic]({{site.url}}/pics/mipad/mipad6.jpg)
-![pic]({{site.url}}/pics/mipad/mipad7.jpg)</content><author><name></name></author><summary type="html">与电脑打字体验无异的小米平板</summary></entry><entry><title type="html">小狼毫编译手记</title><link href="http://localhost:4000/rime/2019/06/13/021.weasel.html" rel="alternate" type="text/html" title="小狼毫编译手记" /><published>2019-06-13T00:00:00+08:00</published><updated>2019-06-13T00:00:00+08:00</updated><id>http://localhost:4000/rime/2019/06/13/021.weasel</id><content type="html" xml:base="http://localhost:4000/rime/2019/06/13/021.weasel.html">#### 主要工具
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad1.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad2.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad3.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad4.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad5.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad6.jpg&quot; alt=&quot;pic&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/pics/mipad/mipad7.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">与电脑打字体验无异的小米平板</summary></entry><entry><title type="html">小狼毫编译手记</title><link href="http://localhost:4000/rime/2019/06/13/021.weasel.html" rel="alternate" type="text/html" title="小狼毫编译手记" /><published>2019-06-13T00:00:00+08:00</published><updated>2019-06-13T00:00:00+08:00</updated><id>http://localhost:4000/rime/2019/06/13/021.weasel</id><content type="html" xml:base="http://localhost:4000/rime/2019/06/13/021.weasel.html">&lt;h4 id=&quot;主要工具&quot;&gt;主要工具&lt;/h4&gt;
 
-- [BOOST库](https://jaist.dl.sourceforge.net/project/boost/boost-binaries/1.70.0/boost_1_70_0-msvc-14.1-64.exe)
-- [Microsoft Visual Studio](https://download.visualstudio.microsoft.com/download/pr/aaebc214-bc67-4137-9bea-04fcb0c90720/2e18f27594472d0c7515d9cbe237bd56/vs_community.exe)
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jaist.dl.sourceforge.net/project/boost/boost-binaries/1.70.0/boost_1_70_0-msvc-14.1-64.exe&quot;&gt;BOOST库&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://download.visualstudio.microsoft.com/download/pr/aaebc214-bc67-4137-9bea-04fcb0c90720/2e18f27594472d0c7515d9cbe237bd56/vs_community.exe&quot;&gt;Microsoft Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-#### 梯子准备
+&lt;h4 id=&quot;梯子准备&quot;&gt;梯子准备&lt;/h4&gt;
 
-GitHub 处于半屏蔽状态，拉代码很慢，最好有 VPN 工具。
+&lt;p&gt;GitHub 处于半屏蔽状态，拉代码很慢，最好有 VPN 工具。&lt;/p&gt;
 
-#### 开发环境
+&lt;h4 id=&quot;开发环境&quot;&gt;开发环境&lt;/h4&gt;
 
-- python3
-- cmake
-- git
+&lt;ul&gt;
+  &lt;li&gt;python3&lt;/li&gt;
+  &lt;li&gt;cmake&lt;/li&gt;
+  &lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
 
-#### 调整 BOOST 库
+&lt;h4 id=&quot;调整-boost-库&quot;&gt;调整 BOOST 库&lt;/h4&gt;
 
-- BOOST 安装好之后，在其根目录下新建 「stage_x64」和「stage」两个文件夹。
-- BOOST 根目录下，有「lib64-msvc-14.1」文件夹，将其内容，分别 **全部复制** 到刚刚新建的两个文件夹内。
+&lt;ul&gt;
+  &lt;li&gt;BOOST 安装好之后，在其根目录下新建 「stage_x64」和「stage」两个文件夹。&lt;/li&gt;
+  &lt;li&gt;BOOST 根目录下，有「lib64-msvc-14.1」文件夹，将其内容，分别 &lt;strong&gt;全部复制&lt;/strong&gt; 到刚刚新建的两个文件夹内。&lt;/li&gt;
+&lt;/ul&gt;
 
-#### 拉代码
+&lt;h4 id=&quot;拉代码&quot;&gt;拉代码&lt;/h4&gt;
 
-准备好 VPN 工具，然后右键调出「git bash here」，拉代码：
+&lt;p&gt;准备好 VPN 工具，然后右键调出「git bash here」，拉代码：&lt;/p&gt;
 
-``````
-git clone --recursive https://github.com/rime/weasel.git
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone --recursive https://github.com/rime/weasel.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-#### 调整 opencc 编码格式
+&lt;h4 id=&quot;调整-opencc-编码格式&quot;&gt;调整 opencc 编码格式&lt;/h4&gt;
 
-「Microsoft Visual Studio」对「UTF-8」支持有些问题，调整一下「PhraseExtract」相关文件的编码格式，设为「UTF-16 BE」，调整工具，强烈建议使用 [Visual Studio Code](https://code.visualstudio.com/)，它是微软家的类 notepad++ 式的代码编辑器，用它可以避免其它意外。
+&lt;p&gt;「Microsoft Visual Studio」对「UTF-8」支持有些问题，调整一下「PhraseExtract」相关文件的编码格式，设为「UTF-16 BE」，调整工具，强烈建议使用 &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt;，它是微软家的类 notepad++ 式的代码编辑器，用它可以避免其它意外。&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\librime\thirdparty\src\opencc\src&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt; D:\weasel\librime\thirdparty\src\opencc\src
+&lt;ul&gt;
+  &lt;li&gt;PhraseExtract.cpp&lt;/li&gt;
+  &lt;li&gt;PhraseExtract.hpp&lt;/li&gt;
+  &lt;li&gt;PhraseExtractTest.cpp&lt;/li&gt;
+&lt;/ul&gt;
 
-- PhraseExtract.cpp
-- PhraseExtract.hpp
-- PhraseExtractTest.cpp
+&lt;p&gt;将这三个文件，用 &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; 打开，在程序右下角，默认显示「UTF-8」，点一下，会弹出「通过编码保存」，在「通过编码保存」中，选「UTF-16 BE」。&lt;/p&gt;
 
-将这三个文件，用 [Visual Studio Code](https://code.visualstudio.com/) 打开，在程序右下角，默认显示「UTF-8」，点一下，会弹出「通过编码保存」，在「通过编码保存」中，选「UTF-16 BE」。
+&lt;h4 id=&quot;设置-boost-引用路径&quot;&gt;设置 BOOST 引用路径&lt;/h4&gt;
 
-#### 设置 BOOST 引用路径
+&lt;p&gt;在「weasel/librime」下面，有「env.bat.template」，你需要将之更名为「env.bat」，清空其中的默认的内容，并写入如下新的内容：&lt;/p&gt;
 
-在「weasel/librime」下面，有「env.bat.template」，你需要将之更名为「env.bat」，清空其中的默认的内容，并写入如下新的内容：
+&lt;p&gt;注意，我是放在了 D 盘根目录上，你未必需要跟我一样，在这里要改成你自己的路径，「boost_1_70_0」是一个有着「b2.exe」的文件夹，路径的层级务必要保证是对的。&lt;/p&gt;
 
-注意，我是放在了 D 盘根目录上，你未必需要跟我一样，在这里要改成你自己的路径，「boost_1_70_0」是一个有着「b2.exe」的文件夹，路径的层级务必要保证是对的。
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set BOOST_ROOT=&quot;D:\boost_1_70_0&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-``````
-set BOOST_ROOT=&quot;D:\boost_1_70_0&quot;
-``````
+&lt;p&gt;起头写，顶格写，写好保存。并将这份改好的「env.bat」，复制给上级目录，即「weasel」文件夹一份。&lt;/p&gt;
 
-起头写，顶格写，写好保存。并将这份改好的「env.bat」，复制给上级目录，即「weasel」文件夹一份。
+&lt;p&gt;因为编译「weasel」主体部分与「librime」部分，都会有调用「boost库」的需求。&lt;/p&gt;
 
-因为编译「weasel」主体部分与「librime」部分，都会有调用「boost库」的需求。
+&lt;h4 id=&quot;编译核心引擎&quot;&gt;编译核心引擎&lt;/h4&gt;
 
-#### 编译核心引擎
+&lt;p&gt;开始菜单中，在「Visual Studio 2017」下面，有「适用于 VS 2017 的 x64 本机工具命令提示」。所有编译，用它完成。&lt;/p&gt;
 
-开始菜单中，在「Visual Studio 2017」下面，有「适用于 VS 2017 的 x64 本机工具命令提示」。所有编译，用它完成。
+&lt;p&gt;在这个命令提示工具中，进入 weasel/librime 下面，如下分步编译：&lt;/p&gt;
 
-在这个命令提示工具中，进入 weasel/librime 下面，如下分步编译：
+&lt;ul&gt;
+  &lt;li&gt;build.bat boost&lt;/li&gt;
+  &lt;li&gt;build.bat thirdparty&lt;/li&gt;
+  &lt;li&gt;build.bat librime&lt;/li&gt;
+&lt;/ul&gt;
 
-- build.bat boost
-- build.bat thirdparty
-- build.bat librime
+&lt;h4 id=&quot;include-头文件调整&quot;&gt;include 头文件调整&lt;/h4&gt;
 
-#### include 头文件调整
+&lt;p&gt;编译过 librime 之后，会有「weasel\librime\dist」这个目录，其中有「include」文件夹。&lt;/p&gt;
 
-编译过 librime 之后，会有「weasel\librime\dist」这个目录，其中有「include」文件夹。
+&lt;ul&gt;
+  &lt;li&gt;复制「include」整个文件夹到「weasel\librime」下面，因为这下面，默认缺失「include」，而工程文件是需要它存在的。&lt;/li&gt;
+  &lt;li&gt;制复「include」中的所有内容到「weasel\include」内，因为这个目录，默认缺失「rime_api.h」和「rime_levers_api.h」。&lt;/li&gt;
+&lt;/ul&gt;
 
-- 复制「include」整个文件夹到「weasel\librime」下面，因为这下面，默认缺失「include」，而工程文件是需要它存在的。
-- 制复「include」中的所有内容到「weasel\include」内，因为这个目录，默认缺失「rime_api.h」和「rime_levers_api.h」。
+&lt;h4 id=&quot;图标调整&quot;&gt;图标调整&lt;/h4&gt;
 
-#### 图标调整
+&lt;ul&gt;
+  &lt;li&gt;托盘图标调整&lt;/li&gt;
+&lt;/ul&gt;
 
-- 托盘图标调整
+&lt;p&gt;weasel\resource 下面，有程序所需要的图标，在此替换成我们的样式。同时放入「alternative-icons」及相关图标到此。&lt;/p&gt;
 
-weasel\resource 下面，有程序所需要的图标，在此替换成我们的样式。同时放入「alternative-icons」及相关图标到此。
+&lt;ul&gt;
+  &lt;li&gt;悬浮图标调整&lt;/li&gt;
+&lt;/ul&gt;
 
-- 悬浮图标调整
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\WeaselServer\WeaselServer.rc&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt; D:\weasel\WeaselServer\WeaselServer.rc
-
-``````
-IDI_WEASEL              ICON                    &quot;..\\resource\\weasel.ico&quot;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;IDI_WEASEL              ICON                    &quot;..\\resource\\weasel.ico&quot;
 
 IDI_EN                  ICON                    &quot;..\\resource\\alternative-icons\\en.ico&quot;
 
 IDI_ZH                  ICON                    &quot;..\\resource\\alternative-icons\\zh.ico&quot;
 
 IDI_RELOAD              ICON                    &quot;..\\resource\\alternative-icons\\reload.ico&quot;
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&gt; D:\weasel\WeaselServerWeaselServer.vcxproj
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\WeaselServerWeaselServer.vcxproj&lt;/p&gt;
+&lt;/blockquote&gt;
 
-``````
-  &lt;ItemGroup&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\en.ico&quot; /&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\reload.ico&quot; /&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\zh.ico&quot; /&gt;
-    &lt;None Include=&quot;..\resource\weasel.ico&quot; /&gt;
-  &lt;/ItemGroup&gt;
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;ItemGroup&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\en.ico&quot; /&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\reload.ico&quot; /&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\zh.ico&quot; /&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\weasel.ico&quot; /&amp;gt;
+  &amp;lt;/ItemGroup&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&gt; D:\weasel\WeaselServer\WeaselServer.vcxproj.filters
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\WeaselServer\WeaselServer.vcxproj.filters&lt;/p&gt;
+&lt;/blockquote&gt;
 
-``````
-  &lt;ItemGroup&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\en.ico&quot;&gt;
-      &lt;Filter&gt;Resource Files&lt;/Filter&gt;
-    &lt;/None&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\reload.ico&quot;&gt;
-      &lt;Filter&gt;Resource Files&lt;/Filter&gt;
-    &lt;/None&gt;
-    &lt;None Include=&quot;..\resource\alternative-icons\zh.ico&quot;&gt;
-      &lt;Filter&gt;Resource Files&lt;/Filter&gt;
-    &lt;/None&gt;
-    &lt;None Include=&quot;..\resource\weasel.ico&quot;&gt;
-      &lt;Filter&gt;Resource Files&lt;/Filter&gt;
-    &lt;/None&gt;
-  &lt;/ItemGroup&gt;
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;ItemGroup&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\en.ico&quot;&amp;gt;
+      &amp;lt;Filter&amp;gt;Resource Files&amp;lt;/Filter&amp;gt;
+    &amp;lt;/None&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\reload.ico&quot;&amp;gt;
+      &amp;lt;Filter&amp;gt;Resource Files&amp;lt;/Filter&amp;gt;
+    &amp;lt;/None&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\alternative-icons\zh.ico&quot;&amp;gt;
+      &amp;lt;Filter&amp;gt;Resource Files&amp;lt;/Filter&amp;gt;
+    &amp;lt;/None&amp;gt;
+    &amp;lt;None Include=&quot;..\resource\weasel.ico&quot;&amp;gt;
+      &amp;lt;Filter&amp;gt;Resource Files&amp;lt;/Filter&amp;gt;
+    &amp;lt;/None&amp;gt;
+  &amp;lt;/ItemGroup&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-之所以特意调整「悬浮图标」，是因为在程序中，它们本是有独立的代码索引的。但是默认的悬浮图标实在太丑了。
+&lt;p&gt;之所以特意调整「悬浮图标」，是因为在程序中，它们本是有独立的代码索引的。但是默认的悬浮图标实在太丑了。
 托盘图标，在我们的设定里是有透明背景的 ico ，但是如果悬浮也是同样透明背景的话，透明部分会显示成「黑色」。
-为了避免这个问题，在「alternative-icons」下放入事先做好的悬浮图标，并在代码中如上添加索引，以尽善尽美。
+为了避免这个问题，在「alternative-icons」下放入事先做好的悬浮图标，并在代码中如上添加索引，以尽善尽美。&lt;/p&gt;
 
-#### 编译主程序
+&lt;h4 id=&quot;编译主程序&quot;&gt;编译主程序&lt;/h4&gt;
 
-使用「适用于 VS 2017 的 x64 本机工具命令提示」进入 weasel 文件夹内：
+&lt;p&gt;使用「适用于 VS 2017 的 x64 本机工具命令提示」进入 weasel 文件夹内：&lt;/p&gt;
 
-``````
-build.bat all
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;build.bat all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-几分钟后，会在「weasel\output\archives」下生成 exe 包。
+&lt;p&gt;几分钟后，会在「weasel\output\archives」下生成 exe 包。&lt;/p&gt;
 
-这样，就完成了对 librime_1.5 时代新版小狼毫的源代码编译工作。
+&lt;p&gt;这样，就完成了对 librime_1.5 时代新版小狼毫的源代码编译工作。&lt;/p&gt;
 
-接下来，就可以放入我们的脚本，封装我们的方案了。
+&lt;p&gt;接下来，就可以放入我们的脚本，封装我们的方案了。&lt;/p&gt;
 
-#### install.nsi 适配
+&lt;h4 id=&quot;installnsi-适配&quot;&gt;install.nsi 适配&lt;/h4&gt;
 
-install.nsi 似乎有所变动，保险起见，可以将我们的脚本参数迁移到新的 install.nsi 上来。
+&lt;p&gt;install.nsi 似乎有所变动，保险起见，可以将我们的脚本参数迁移到新的 install.nsi 上来。&lt;/p&gt;
 
-#### LUA 插件支持
+&lt;h4 id=&quot;lua-插件支持&quot;&gt;LUA 插件支持&lt;/h4&gt;
 
-上述编译过程，不涉及「LUA 插件」的支持。新版的 Librime 引擎中，代码树里缺少对「LUA 插件」的引用，所以 git 拉下的代码，编译出来是默认不支持 LUA 插件的。
+&lt;p&gt;上述编译过程，不涉及「LUA 插件」的支持。新版的 Librime 引擎中，代码树里缺少对「LUA 插件」的引用，所以 git 拉下的代码，编译出来是默认不支持 LUA 插件的。&lt;/p&gt;
 
-下面讲一下如何编译进对「LUA 插件」的支持。
+&lt;p&gt;下面讲一下如何编译进对「LUA 插件」的支持。&lt;/p&gt;
 
-##### 插件代码拉到本地
+&lt;h5 id=&quot;插件代码拉到本地&quot;&gt;插件代码拉到本地&lt;/h5&gt;
 
+&lt;p&gt;使用「适用于 VS 2017 的 x64 本机工具命令提示」，进入 librime 文件夹下的 plugins 下面，典型的路径如下所示：&lt;/p&gt;
 
-使用「适用于 VS 2017 的 x64 本机工具命令提示」，进入 librime 文件夹下的 plugins 下面，典型的路径如下所示：
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\librime\plugins&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt; D:\weasel\librime\plugins
+&lt;p&gt;右键打开 git bash 工具，拉一下「LUA 插件」的源代码：&lt;/p&gt;
 
-右键打开 git bash 工具，拉一下「LUA 插件」的源代码：
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/98wb/librime-lua.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-``````
-git clone https://github.com/98wb/librime-lua.git
-``````
+&lt;p&gt;拉下代码之后，可以看到类似如下目录，对照你的路径，确认「lua5.3」的存在。&lt;/p&gt;
 
-拉下代码之后，可以看到类似如下目录，对照你的路径，确认「lua5.3」的存在。
+&lt;blockquote&gt;
+  &lt;p&gt;D:\weasel\librime\plugins\librime-lua\thirdparty\lua5.3&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt; D:\weasel\librime\plugins\librime-lua\thirdparty\lua5.3
+&lt;h5 id=&quot;重新编译-librime-模块&quot;&gt;重新编译 Librime 模块&lt;/h5&gt;
 
-##### 重新编译 Librime 模块
+&lt;p&gt;使用「适用于 VS 2017 的 x64 本机工具命令提示」，去到「weasel/librime」下面，重新编译 Librime&lt;/p&gt;
 
-使用「适用于 VS 2017 的 x64 本机工具命令提示」，去到「weasel/librime」下面，重新编译 Librime
+&lt;ul&gt;
+  &lt;li&gt;build.bat boost&lt;/li&gt;
+  &lt;li&gt;build.bat thirdparty&lt;/li&gt;
+  &lt;li&gt;build.bat librime&lt;/li&gt;
+&lt;/ul&gt;
 
-- build.bat boost
-- build.bat thirdparty
-- build.bat librime
+&lt;p&gt;再次分部编译，可以避免意外发生。然后，会在「weasel\librime\dist\include」下生成新的「rime_api.h」和「rime_levers_api.h」。&lt;/p&gt;
 
-再次分部编译，可以避免意外发生。然后，会在「weasel\librime\dist\include」下生成新的「rime_api.h」和「rime_levers_api.h」。
+&lt;p&gt;这两个文件被再一次生成了，它可能关联着「LUA 插件」支持的信息，将它们再次覆盖到之前我们丢入的地方：&lt;/p&gt;
 
-这两个文件被再一次生成了，它可能关联着「LUA 插件」支持的信息，将它们再次覆盖到之前我们丢入的地方：
+&lt;ul&gt;
+  &lt;li&gt;「weasel\include」&lt;/li&gt;
+  &lt;li&gt;「weasel\librime\include」&lt;/li&gt;
+&lt;/ul&gt;
 
-- 「weasel\include」
-- 「weasel\librime\include」
+&lt;h4 id=&quot;重新编译-weasel-主体&quot;&gt;重新编译 weasel 主体&lt;/h4&gt;
 
-#### 重新编译 weasel 主体
+&lt;p&gt;使用「适用于 VS 2017 的 x64 本机工具命令提示」，去到「weasel」下面，重新编译全部程序&lt;/p&gt;
 
-使用「适用于 VS 2017 的 x64 本机工具命令提示」，去到「weasel」下面，重新编译全部程序
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;build.bat all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-``````
-build.bat all
-``````
+&lt;p&gt;再次编译，会验证并无变化的相关文件，速度会很快，不需要担心时间问题，稳是最重要的。&lt;/p&gt;
 
-再次编译，会验证并无变化的相关文件，速度会很快，不需要担心时间问题，稳是最重要的。
+&lt;h4 id=&quot;lua-脚本举例&quot;&gt;Lua 脚本举例&lt;/h4&gt;
 
-#### Lua 脚本举例
+&lt;p&gt;下面的路径，是我预放入的，98五笔专版所用到的 LUA 脚本。&lt;/p&gt;
 
-下面的路径，是我预放入的，98五笔专版所用到的 LUA 脚本。
+&lt;p&gt;‪&amp;gt; D:weasel\librime\plugins\librime-lua\sample\rime-98WB.lua&lt;/p&gt;
 
-‪&gt; D:weasel\librime\plugins\librime-lua\sample\rime-98WB.lua
+&lt;ul&gt;
+  &lt;li&gt;名称问题&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;LUA 脚本文件，名称必须是「rime.lua」，所以「rime-98WB.lua」更名为「rime.lua」才能使用。&lt;/p&gt;
 
-- 名称问题
+&lt;ul&gt;
+  &lt;li&gt;路径问题&lt;/li&gt;
+&lt;/ul&gt;
 
-LUA 脚本文件，名称必须是「rime.lua」，所以「rime-98WB.lua」更名为「rime.lua」才能使用。
+&lt;p&gt;「rime.lua」最好放在「用户文件夹」下面，这样无论修改，还是权限，都比较好。&lt;/p&gt;
 
-- 路径问题
+&lt;ul&gt;
+  &lt;li&gt;对接问题&lt;/li&gt;
+&lt;/ul&gt;
 
-「rime.lua」最好放在「用户文件夹」下面，这样无论修改，还是权限，都比较好。
+&lt;p&gt;LUA 脚本，需要与 schema 对接一下，才能生效。&lt;/p&gt;
 
-- 对接问题
+&lt;p&gt;典型的 schema.yaml 文件，如下对接 LUA 插件：&lt;/p&gt;
 
-LUA 脚本，需要与 schema 对接一下，才能生效。
+&lt;p&gt;关键字「single_char」，「lua_filter」，「lua_translator」。&lt;/p&gt;
 
-典型的 schema.yaml 文件，如下对接 LUA 插件：
+&lt;p&gt;下面的 schema ，做了「开关对接」，「快捷键对接」，「过滤器对接」，「翻译器对接」。&lt;/p&gt;
 
-关键字「single_char」，「lua_filter」，「lua_translator」。
-
-下面的 schema ，做了「开关对接」，「快捷键对接」，「过滤器对接」，「翻译器对接」。
-
-``````
-switches:
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;switches:
   - name: ascii_mode
     reset: 0
   - name: zh_trad
@@ -590,20 +659,21 @@ key_binder:
     - {accept: &quot;Control+Shift+I&quot;, toggle: gb2312, when: always} 
     - {accept: &quot;Control+Shift+O&quot;, toggle: gb2312, when: always}
 
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-欲加入上述「rime-98WB.lua」，在使用时，需要更名为「rime.lua」，并如上添加 schema 对接。
+&lt;p&gt;欲加入上述「rime-98WB.lua」，在使用时，需要更名为「rime.lua」，并如上添加 schema 对接。&lt;/p&gt;
 
-在98五笔专版中，「single_char」这个以 LUA 实现的「单字模式」，只给了「含词」选单。
+&lt;p&gt;在98五笔专版中，「single_char」这个以 LUA 实现的「单字模式」，只给了「含词」选单。&lt;/p&gt;
 
-而使用 LUA 实现的时间日期等输出功能，则两份选单兼有。
+&lt;p&gt;而使用 LUA 实现的时间日期等输出功能，则两份选单兼有。&lt;/p&gt;
 
-- 冲突问题
+&lt;ul&gt;
+  &lt;li&gt;冲突问题&lt;/li&gt;
+&lt;/ul&gt;
 
-在这份 [rime-98WB.lua](https://github.com/98wb/librime-lua/blob/master/sample/rime-98WB.lua) 脚本中，已解决单字模式下，日期时间等字符串被过滤掉的问题，示例代码如下：
+&lt;p&gt;在这份 &lt;a href=&quot;https://github.com/98wb/librime-lua/blob/master/sample/rime-98WB.lua&quot;&gt;rime-98WB.lua&lt;/a&gt; 脚本中，已解决单字模式下，日期时间等字符串被过滤掉的问题，示例代码如下：&lt;/p&gt;
 
-``````
---- single_char
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--- single_char
 function single_char(input, env)
    b = env.engine.context:get_option(&quot;single_char&quot;)
    for cand in input:iter() do
@@ -612,119 +682,124 @@ function single_char(input, env)
       end
    end
 end
-``````
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-其中，if 语句是过滤条件：
+&lt;p&gt;其中，if 语句是过滤条件：&lt;/p&gt;
 
-``````
-if (not b or utf8.len(cand.text) == 1 or cand.type == &quot;qsj&quot;or cand.type == &quot;time&quot;or cand.type == &quot;date&quot;)
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if (not b or utf8.len(cand.text) == 1 or cand.type == &quot;qsj&quot;or cand.type == &quot;time&quot;or cand.type == &quot;date&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-在这里，添加 qsj 、 time 、 date 、 week ，就可以避免它们所代表的**函数类型**被滤掉。
+&lt;p&gt;在这里，添加 qsj 、 time 、 date 、 week ，就可以避免它们所代表的&lt;strong&gt;函数类型&lt;/strong&gt;被滤掉。&lt;/p&gt;
 
-比如「time」，它其实对应着下面 Candidate() 的第一个参数 time , 这个是**函数类型**的定义，并非**触发函数的关键字**。
+&lt;p&gt;比如「time」，它其实对应着下面 Candidate() 的第一个参数 time , 这个是&lt;strong&gt;函数类型&lt;/strong&gt;的定义，并非&lt;strong&gt;触发函数的关键字&lt;/strong&gt;。&lt;/p&gt;
 
-``````
-yield(Candidate(&quot;time&quot;, seg.start, seg._end, os.date(&quot;%H:%M:%S&quot;), &quot;〔时间〕&quot;))
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yield(Candidate(&quot;time&quot;, seg.start, seg._end, os.date(&quot;%H:%M:%S&quot;), &quot;〔时间〕&quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-下面的语句，才是**触发函数的关键字**：
+&lt;p&gt;下面的语句，才是&lt;strong&gt;触发函数的关键字&lt;/strong&gt;：&lt;/p&gt;
 
-``````
-if (input == &quot;time&quot;) then
-``````
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if (input == &quot;time&quot;) then
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-也许，使用 LUA 做个字符集过滤开关，就能针对性地放行被过滤掉的某些字符，从而曲线弥补中州韵引擎在这方面的缺点。
+&lt;p&gt;也许，使用 LUA 做个字符集过滤开关，就能针对性地放行被过滤掉的某些字符，从而曲线弥补中州韵引擎在这方面的缺点。&lt;/p&gt;
 
-LUA 好像是个很简单的脚本语言，期待未来能够玩出花来。
+&lt;p&gt;LUA 好像是个很简单的脚本语言，期待未来能够玩出花来。&lt;/p&gt;
 
-#### 现在基本完美了
+&lt;h4 id=&quot;现在基本完美了&quot;&gt;现在基本完美了&lt;/h4&gt;
 
-喵呜。</content><author><name></name></author><summary type="html">源码编译小狼毫</summary></entry><entry><title type="html">添加QQ群打开链接</title><link href="http://localhost:4000/input%20method/2019/06/07/011.trime.html" rel="alternate" type="text/html" title="添加QQ群打开链接" /><published>2019-06-07T00:00:00+08:00</published><updated>2019-06-07T00:00:00+08:00</updated><id>http://localhost:4000/input%20method/2019/06/07/011.trime</id><content type="html" xml:base="http://localhost:4000/input%20method/2019/06/07/011.trime.html">#### 为同文添加「98五笔交流群」链接
+&lt;p&gt;喵呜。&lt;/p&gt;</content><author><name></name></author><summary type="html">源码编译小狼毫</summary></entry><entry><title type="html">添加QQ群打开链接</title><link href="http://localhost:4000/input%20method/2019/06/07/011.trime.html" rel="alternate" type="text/html" title="添加QQ群打开链接" /><published>2019-06-07T00:00:00+08:00</published><updated>2019-06-07T00:00:00+08:00</updated><id>http://localhost:4000/input%20method/2019/06/07/011.trime</id><content type="html" xml:base="http://localhost:4000/input%20method/2019/06/07/011.trime.html">&lt;h4 id=&quot;为同文添加98五笔交流群链接&quot;&gt;为同文添加「98五笔交流群」链接&lt;/h4&gt;
 
-&gt; trime/app/src/main/res/xml/prefs.xml
+&lt;blockquote&gt;
+  &lt;p&gt;trime/app/src/main/res/xml/prefs.xml&lt;/p&gt;
+&lt;/blockquote&gt;
 
-下面，有一些打开 QQ 群的链接，它是使用了 QQ 的 公共 API
+&lt;p&gt;下面，有一些打开 QQ 群的链接，它是使用了 QQ 的 公共 API&lt;/p&gt;
 
-观察，这一部分都是相同的：
+&lt;p&gt;观察，这一部分都是相同的：&lt;/p&gt;
 
-&gt; mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D
+&lt;blockquote&gt;
+  &lt;p&gt;mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D&lt;/p&gt;
+&lt;/blockquote&gt;
 
-所以，在网上搜了一下生成后面转跳群号专用 Key 的在线工具，生成了 98五笔交流群 需要的 Key
+&lt;p&gt;所以，在网上搜了一下生成后面转跳群号专用 Key 的在线工具，生成了 98五笔交流群 需要的 Key&lt;/p&gt;
 
-&gt; wSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib
+&lt;blockquote&gt;
+  &lt;p&gt;wSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib&lt;/p&gt;
+&lt;/blockquote&gt;
 
-两部分拼到一起，就成了：
+&lt;p&gt;两部分拼到一起，就成了：&lt;/p&gt;
 
-&gt; mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3DwSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib
+&lt;blockquote&gt;
+  &lt;p&gt;mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3DwSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib&lt;/p&gt;
+&lt;/blockquote&gt;
 
-在 「pre_rime_qq」字段下面，仿写：
+&lt;p&gt;在 「pre_rime_qq」字段下面，仿写：&lt;/p&gt;
 
-```
-        &lt;Preference android:key=&quot;pref_98wb_qq&quot; android:title=&quot;@string/pref_98wb_qq&quot;
-                    android:summary=&quot;@string/pref_rime_98wb_summary&quot;&gt;
-            &lt;intent android:action=&quot;android.intent.action.VIEW&quot;
-                    android:data=&quot;mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3DwSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib&quot; /&gt;
-        &lt;/Preference&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &amp;lt;Preference android:key=&quot;pref_98wb_qq&quot; android:title=&quot;@string/pref_98wb_qq&quot;
+                    android:summary=&quot;@string/pref_rime_98wb_summary&quot;&amp;gt;
+            &amp;lt;intent android:action=&quot;android.intent.action.VIEW&quot;
+                    android:data=&quot;mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3DwSzR_7XoJ_c3yYFyKKNzEsx0Nkv_oIib&quot; /&amp;gt;
+        &amp;lt;/Preference&amp;gt;
 
-```
-保持相同的缩进，即完成第一部分。接下来，需要对有「@string」修饰到的「pref_98wb_qq」与「pref_rime_98wb_summary」添加字符串定义：
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;保持相同的缩进，即完成第一部分。接下来，需要对有「@string」修饰到的「pref_98wb_qq」与「pref_rime_98wb_summary」添加字符串定义：&lt;/p&gt;
 
-&gt; trime/app/src/main/res 
+&lt;blockquote&gt;
+  &lt;p&gt;trime/app/src/main/res&lt;/p&gt;
+&lt;/blockquote&gt;
 
-下面，搜一搜「string.xml」
+&lt;p&gt;下面，搜一搜「string.xml」&lt;/p&gt;
 
-```
-$ find -name 'strings.xml'
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ find -name 'strings.xml'
 ./values-zh-rCN/strings.xml
 ./values/strings.xml
 ./values-zh-rTW/strings.xml
-```
-可以看到，是「values」，「values-zh-rTW」，「values-zh-rCN」三个文件夹下面。
-仿着其中的 「pref_rime_qq」，添加「pref_98wb_qq」：
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;可以看到，是「values」，「values-zh-rTW」，「values-zh-rCN」三个文件夹下面。
+仿着其中的 「pref_rime_qq」，添加「pref_98wb_qq」：&lt;/p&gt;
 
-```
-    &lt;string name=&quot;pref_help&quot;&gt;Help&lt;/string&gt;
-    &lt;string name=&quot;pref_wiki&quot;&gt;Wiki&lt;/string&gt;
-    &lt;string name=&quot;pref_issues&quot;&gt;Report Issues&lt;/string&gt;
-    &lt;string name=&quot;pref_trime_qq&quot;&gt;Trime QQ Group&lt;/string&gt;
-    &lt;string name=&quot;pref_trime_qq2&quot;&gt;Trime QQ Group 2&lt;/string&gt;
-    &lt;string name=&quot;pref_rime_qq&quot;&gt;Rime QQ Group&lt;/string&gt;
-    &lt;string name=&quot;pref_98wb_qq&quot;&gt;Rime 98wb Group&lt;/string&gt;
-```
-如法炮制另外两份不同语言的「string.xml」。
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &amp;lt;string name=&quot;pref_help&quot;&amp;gt;Help&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_wiki&quot;&amp;gt;Wiki&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_issues&quot;&amp;gt;Report Issues&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_trime_qq&quot;&amp;gt;Trime QQ Group&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_trime_qq2&quot;&amp;gt;Trime QQ Group 2&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_rime_qq&quot;&amp;gt;Rime QQ Group&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_98wb_qq&quot;&amp;gt;Rime 98wb Group&amp;lt;/string&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如法炮制另外两份不同语言的「string.xml」。&lt;/p&gt;
 
-除此之外，在「values」下面，除了一份「string.xml」外，还有一份「donottranslate.xml」，它里面存着关于 QQ 群号的数值串「pref_rime_\*_summary」。
+&lt;p&gt;除此之外，在「values」下面，除了一份「string.xml」外，还有一份「donottranslate.xml」，它里面存着关于 QQ 群号的数值串「pref_rime_*_summary」。&lt;/p&gt;
 
-同样仿写一下：
+&lt;p&gt;同样仿写一下：&lt;/p&gt;
 
-```
-    &lt;string name=&quot;pref_trime_qq_summary&quot;&gt;480159874&lt;/string&gt;
-    &lt;string name=&quot;pref_trime_qq2_summary&quot;&gt;458845988&lt;/string&gt;
-    &lt;string name=&quot;pref_rime_qq_summary&quot;&gt;77608640&lt;/string&gt;
-    &lt;string name=&quot;pref_rime_98wb_summary&quot;&gt;547820540&lt;/string&gt;
-```
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &amp;lt;string name=&quot;pref_trime_qq_summary&quot;&amp;gt;480159874&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_trime_qq2_summary&quot;&amp;gt;458845988&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_rime_qq_summary&quot;&amp;gt;77608640&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&quot;pref_rime_98wb_summary&quot;&amp;gt;547820540&amp;lt;/string&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-于是，就完成了对 QQ 群支持的添加。</content><author><name></name></author><summary type="html">给同文98版五笔添加入群引导</summary></entry><entry><title type="html">荇花荷叶明人眼，犹记当年入镜湖</title><link href="http://localhost:4000/poem/2019/06/06/015.poem.html" rel="alternate" type="text/html" title="荇花荷叶明人眼，犹记当年入镜湖" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/015.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/015.poem.html">![pic]({{site.url}}/pics/poem/lake.jpg)
+&lt;p&gt;于是，就完成了对 QQ 群支持的添加。&lt;/p&gt;</content><author><name></name></author><summary type="html">给同文98版五笔添加入群引导</summary></entry><entry><title type="html">荇花荷叶明人眼，犹记当年入镜湖</title><link href="http://localhost:4000/poem/2019/06/06/015.poem.html" rel="alternate" type="text/html" title="荇花荷叶明人眼，犹记当年入镜湖" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/015.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/015.poem.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/lake.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://500px.com/duongquocdinh&quot;&gt;宋·孔武仲&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">宋·孔武仲</summary></entry><entry><title type="html">采莲南塘秋，莲花过人头</title><link href="http://localhost:4000/poem/2019/06/06/016.poem.html" rel="alternate" type="text/html" title="采莲南塘秋，莲花过人头" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/016.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/016.poem.html">![pic]({{site.url}}/pics/poem/lotus.jpg)
+&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://500px.com/duongquocdinh&quot;&gt;宋·孔武仲&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">宋·孔武仲</summary></entry><entry><title type="html">采莲南塘秋，莲花过人头</title><link href="http://localhost:4000/poem/2019/06/06/016.poem.html" rel="alternate" type="text/html" title="采莲南塘秋，莲花过人头" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/016.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/016.poem.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/lotus.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;西洲曲·南北朝&lt;/p&gt;</content><author><name></name></author><summary type="html">西洲曲·南北朝</summary></entry><entry><title type="html">借问吹箫向紫烟，曾经学舞度芳年</title><link href="http://localhost:4000/poem/2019/06/06/017.poem.html" rel="alternate" type="text/html" title="借问吹箫向紫烟，曾经学舞度芳年" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/017.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/017.poem.html">![pic]({{site.url}}/pics/poem/dance.jpg)
+&lt;p align=&quot;center&quot;&gt;西洲曲·南北朝&lt;/p&gt;</content><author><name></name></author><summary type="html">西洲曲·南北朝</summary></entry><entry><title type="html">借问吹箫向紫烟，曾经学舞度芳年</title><link href="http://localhost:4000/poem/2019/06/06/017.poem.html" rel="alternate" type="text/html" title="借问吹箫向紫烟，曾经学舞度芳年" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/017.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/017.poem.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/dance.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://500px.com/duongquocdinh&quot;&gt;唐·长安古意&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">唐·长安古意</summary></entry><entry><title type="html">多少春风归嫩柳，更无颜色向残红</title><link href="http://localhost:4000/poem/2019/06/06/018.poem.html" rel="alternate" type="text/html" title="多少春风归嫩柳，更无颜色向残红" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/018.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/018.poem.html">- 浮云去住水西东，一度韶华又复空。多少春风归嫩柳，更无颜色向残红。
+&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://500px.com/duongquocdinh&quot;&gt;唐·长安古意&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">唐·长安古意</summary></entry><entry><title type="html">多少春风归嫩柳，更无颜色向残红</title><link href="http://localhost:4000/poem/2019/06/06/018.poem.html" rel="alternate" type="text/html" title="多少春风归嫩柳，更无颜色向残红" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/018.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/018.poem.html">&lt;ul&gt;
+  &lt;li&gt;浮云去住水西东，一度韶华又复空。多少春风归嫩柳，更无颜色向残红。&lt;/li&gt;
+&lt;/ul&gt;
 
-![pic]({{site.url}}/pics/poem/amateur-hotaru-7.jpg)
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/amateur-hotaru-7.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-![pic]({{site.url}}/pics/poem/amateur-hotaru-1.jpg)
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/amateur-hotaru-1.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.jjgirls.com/japanese/amateur-hotaru/1/&quot;&gt;明·卢重斋&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">明·卢重斋</summary></entry><entry><title type="html">若有人兮山之阿,被薜荔兮带女萝</title><link href="http://localhost:4000/poem/2019/06/06/019.poem.html" rel="alternate" type="text/html" title="若有人兮山之阿,被薜荔兮带女萝" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/019.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/019.poem.html">![pic]({{site.url}}/pics/poem/Pretty_In_Pink1.jpg)
+&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://www.jjgirls.com/japanese/amateur-hotaru/1/&quot;&gt;明·卢重斋&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">明·卢重斋</summary></entry><entry><title type="html">若有人兮山之阿,被薜荔兮带女萝</title><link href="http://localhost:4000/poem/2019/06/06/019.poem.html" rel="alternate" type="text/html" title="若有人兮山之阿,被薜荔兮带女萝" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/019.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/019.poem.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/Pretty_In_Pink1.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-![pic]({{site.url}}/pics/poem/Pretty_In_Pink2.jpg)
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/Pretty_In_Pink2.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-![pic]({{site.url}}/pics/poem/Pretty_In_Pink3.jpg)
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/Pretty_In_Pink3.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-![pic]({{site.url}}/pics/poem/Pretty_In_Pink4.jpg)
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/Pretty_In_Pink4.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://l3luetoss.egloos.com/3398946&quot;&gt;战国·屈原&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">战国·屈原</summary></entry><entry><title type="html">天高霜月砧声苦，风满寒林木叶黄</title><link href="http://localhost:4000/poem/2019/06/06/020.poem.html" rel="alternate" type="text/html" title="天高霜月砧声苦，风满寒林木叶黄" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/020.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/020.poem.html">![pic]({{site.url}}/pics/poem/tree.jpg)
+&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://l3luetoss.egloos.com/3398946&quot;&gt;战国·屈原&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">战国·屈原</summary></entry><entry><title type="html">天高霜月砧声苦，风满寒林木叶黄</title><link href="http://localhost:4000/poem/2019/06/06/020.poem.html" rel="alternate" type="text/html" title="天高霜月砧声苦，风满寒林木叶黄" /><published>2019-06-06T00:00:00+08:00</published><updated>2019-06-06T00:00:00+08:00</updated><id>http://localhost:4000/poem/2019/06/06/020.poem</id><content type="html" xml:base="http://localhost:4000/poem/2019/06/06/020.poem.html">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/pics/poem/tree.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://500px.com/duongquocdinh&quot;&gt;唐·刘蕴灵&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">唐·刘蕴灵</summary></entry></feed>
