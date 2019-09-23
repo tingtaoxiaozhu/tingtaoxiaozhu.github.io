@@ -1,6 +1,7 @@
-url: //tingtaoxiaozhu.github.io
+url: //wubi98.gitee.io
 
 markdown: kramdown
+highlighter: rouge
 
 kramdown:
   input: GFM
@@ -9,6 +10,15 @@ kramdown:
 webrick:
   headers:
     Access-Control-Allow-Origin: "*"
+    
+
+regenerate: true
+incremental: true
 
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+paginate: 50
+paginate_path: "page:num"
+
+excerpt_separator:  '<!-- more -->'

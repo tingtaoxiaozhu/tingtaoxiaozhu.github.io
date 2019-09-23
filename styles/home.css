@@ -22,22 +22,27 @@ a {
     text-decoration: none;
 }
 
+
 .cover {
     display: block;
     width: auto;
     max-height: 100%;
+    font-family: codeFont,zgFont;
 }
 
 .motto {
+
     position: fixed;
     bottom: 10px;
     left: 60px;
     z-index: 2;
     font-size: 36px;
-    color: #AAA;
+    color: #0b4169;
     opacity: 0.7;
     font-family: mottoFont;
+    font-weight: 540
 }
+
 
 .content {
     flex: 1;
@@ -91,7 +96,7 @@ a {
     font-weight: bold;
     color: #666;
     flex: 1;
-    font-family: angelinaFont;
+    font-family: titleFont;
 }
 
 .topbar-button {
@@ -107,6 +112,17 @@ a {
     text-align: center;
     color: #B4B4B4;
     margin-bottom: 100px;
+    font-family: titleFont;	
+}
+
+.pagination{
+    font-size: 20px;
+    text-align: center;
+    color: #B4B4B4;
+	margin-top: 60px;
+    margin-right: 2px;
+    margin-bottom: 60px;
+    margin-left: 2px;
 }
 
 .topbar-button a {
@@ -167,3 +183,4 @@ a {
     flex-direction: row;
     align-items: center;
 }
+

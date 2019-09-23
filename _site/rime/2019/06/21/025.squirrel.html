@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+<script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+<link rel="stylesheet" href="/assets/css/gruvbox.dark.css">
+<title>鼠须管编译手记</title>
+
+        
+        <link rel="stylesheet" href="http://localhost:4000/styles/font.css">
+        <link rel="stylesheet" media="screen and (min-width: 600px)" href="http://localhost:4000/styles/post.css">
+        <link rel="stylesheet" media="screen and (max-width: 600px)" href="http://localhost:4000/styles/post_mobile.css">
+        <link rel="stylesheet" media="screen and (min-width: 600px)" href="http://localhost:4000/styles/navigatebar.css">
+        <link rel="stylesheet" media="screen and (max-width: 600px)" href="http://localhost:4000/styles/navigatebar_mobile.css">
+        <link rel="stylesheet" href="http://localhost:4000/theme/highlight.css">
+    </head>
+    <body>
+        <div class="navigatebar">
+    <div class="navigatebar-button navigatebar-mine">
+        <a href="http://localhost:4000/index.html">乌臼树</a>
+    </div>
+    <div class="navigatebar-slogan">
+        「日暮伯劳飞，风吹乌臼树」
+    </div>
+
+    <div class="navigatebar-button">
+        <a href="http://localhost:4000/tags.html">Tags</a>
+    </div>
+
+    <div class="navigatebar-button navigatebar-about">
+        <a href="http://localhost:4000/about.html">About</a>
+    </div>
+</div>
+
+        <div class="content-area">
+            <div class="title">
+                鼠须管编译手记
+            </div>
+            <div class="category-area">
+                「
+                <a href="http://localhost:4000/tags.html#RIME">
+                    <div class="category">
+                        RIME
+                    </div>
+                </a>
+                」
+            </div>
+            <div class="char-counter">
+                浏览<span data-hk-page="current"> - </span>次 字数3309 2019-06-21
+            </div>
+            <div class="content">
+                <h2 id="依赖包">依赖包</h2>
+
+<p>先去资源库「小工具」下面，下载「依赖包.zip」。
+这是 librime 所需要的第三方依赖，解压一看就明白了，就是一堆相关的源代码包。</p>
+
+<h2 id="vpn工具">VPN工具</h2>
+
+<p>在用 homebrew 包管理器安装 boost 库时，如果不用梯子，可能有下载不完整的问题。</p>
+
+<h2 id="包管理器">包管理器</h2>
+
+<p>使用 homebrew 包管理器，在终端中用下述命令安装到本机：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre></div></div>
+
+<p>出现下述提示，按 Enter 确认：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Press RETURN to continue or any other key to abort
+</code></pre></div></div>
+
+<p>包管理器，可以让 MacOS 像 Linux 那样方便地安装、使用编译工具链。</p>
+
+<h2 id="git--cmake">Git &amp; Cmake</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install cmake git
+</code></pre></div></div>
+
+<h2 id="opencc">OpenCC</h2>
+
+<p>https://github.com/BYVoid/OpenCC</p>
+
+<p>「Clone or download」-「Download ZIP」</p>
+
+<p>下载 OpenCC 包并编译，独立使用它。</p>
+
+<p>解压进入它的根目录，新建一个「build」文件夹。
+在「build」文件夹上，「右键」-「新建位于文件夹位置的终端窗口」。
+完成从「终端」进入到「build」之后：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake ..
+make
+sudo make install
+</code></pre></div></div>
+
+<h2 id="制作ocd">制作OCD</h2>
+
+<p>准备好 opencc 文件，从终端进入到 txt 格式的 opencc 文件所在位置。</p>
+
+<blockquote>
+  <p>MacOS 比较蠢，比较反人类，需要在文件夹上点开右键，才有以终端进入其中的入口</p>
+</blockquote>
+
+<p>仿写转制命令，制作出 MacOS 专属的 OCD 二进制文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opencc_dict -i 98wb_spelling_rk.txt -o 98wb_spelling_rk.ocd -f text -t ocd
+opencc_dict -i 98wb_spelling.txt -o 98wb_spelling.ocd -f text -t ocd
+opencc_dict -i jiayin.txt -o jiayin.ocd -f text -t ocd
+opencc_dict -i STCharacters.txt -o STCharacters.ocd -f text -t ocd
+opencc_dict -i STPhrases.txt -o STPhrases.ocd -f text -t ocd
+</code></pre></div></div>
+
+<h2 id="boost">BOOST</h2>
+
+<ul>
+  <li>安装 boost-1.60</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install boost@1.60
+brew reinstall boost@1.60
+</code></pre></div></div>
+
+<p>不管有没有 boost@1.60 ,用上述命令「安装&amp;重装」一次，安装过程中，注意盯着终端信息，如有下载不完整的提示，及时「control + C」，并重试。</p>
+
+<ul>
+  <li>写入环境变量，终端输入</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export LDFLAGS="-L/usr/local/opt/boost@1.60/lib"
+export CPPFLAGS="-I/usr/local/opt/boost@1.60/include"
+</code></pre></div></div>
+
+<ul>
+  <li>重置 boost-link</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew link --force boost@1.60
+</code></pre></div></div>
+
+<h2 id="代码树">代码树</h2>
+
+<ul>
+  <li>Librime</li>
+</ul>
+
+<p>https://github.com/rime/librime/releases/tag/1.5.2</p>
+
+<ul>
+  <li>Plum</li>
+</ul>
+
+<p>https://github.com/rime/plum</p>
+
+<ul>
+  <li>Squirrel</li>
+</ul>
+
+<p>https://github.com/rime/squirrel/releases/tag/0.13.0</p>
+
+<h4 id="直取最新代码">直取最新代码</h4>
+
+<p>3 大基本组件，按逻辑关系放好，也就是需要手动往 librime 和 plum 文件夹下拷入对应代码。</p>
+
+<p>之所以没有使用 git 拉取，是因为鼠须管上现在使用 Git 管理的代码指向关系停留在 Squirrel v0.12.0 和 librime v 1.5.1 上。
+一旦使用 Git 拉取代码，拿到的就是有 bug 的旧代码，编译完之后还得升级，你说丧气不丧气。</p>
+
+<h4 id="补齐-librime-依赖">补齐 librime 依赖</h4>
+
+<p>将开始时从资源库里下载到的「依赖包.zip」，解压合并到「librime/thirdparty/src/」下面。</p>
+
+<h4 id="补齐-plugins">补齐 plugins</h4>
+
+<p>用终端进入到「librime/plugins」下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/98wb/librime-lua.git
+</code></pre></div></div>
+<p>当然，资源库的小工具里，也放有一份的。</p>
+
+<h4 id="备份代码树">备份代码树</h4>
+
+<p>通过手动下载最新的 3 大组件代码包，并对 librime 的「thirdparty/src」和「plugins」手动补齐，现在本地已有了「完整」的代码目录。
+这个「完整」的代码目录很重要，未来版本升级时，只需要下载<a href="https://github.com/rime/librime/releases">「releases」</a>界面的 <a href="https://github.com/rime/librime/archive/1.5.2.zip">Source code (zip)</a>，并对本地的同级代码进行「覆盖」替换，就能重新编译新版。</p>
+
+<p>GitHub 上的<a href="https://github.com/rime/librime/releases">「releases」</a>界面，都有统一的入口，不同的组件有不同的「releases」发布页，截止目前，librime 已有「22 releases」。</p>
+
+<p>尽量不要以「Clone or download」-「Download ZIP」 的方式下载代码，除非在这个界面上的时间线里能看到最新的改动。以「Squrirrel」为例，用这样方式下载，得到的就是 v 0.12.0，但是 releases 下的是 v 0.13.0，编译好了还得升级，那编译就没意义了。</p>
+
+<ul>
+  <li>版本拉高 2 个版次</li>
+</ul>
+
+<p>打开 vscode，用「⌘ + O」快捷键打开「Squirrel/Info.plist」，在 <a href="https://github.com/rime/squirrel/blob/master/Info.plist">它</a> 的下面，有如下字段是定义版本的：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;string&gt;0.13.0&lt;/string&gt;
+</code></pre></div></div>
+
+<p>我们把它改为「0.15.0」，比官方默认的数字高 2 个版本。这样可以防止佛振忽然升级，因为未来的中州韵核心引擎的升级主要与音码有关，如果它存在着形码方面的 bug ，会给使用我们包的所有人带来困扰。
+而我们也能留出空白的时间，去测试 librime 内核，在确认它正常之后，再推更高 2 个版本的新包。</p>
+
+<ul>
+  <li>空目录警告</li>
+</ul>
+
+<p>从网上下载过来的「Squirrel」代码包，解压之后，它下面有「librime」和「plum」的<strong>空文件</strong>。
+如果用它覆盖本地同级目录，「librime」和「plum」这两个<strong>空文件</strong>，会取代你之前的「librime」和「plum」。
+MacOS 是个十分愚蠢的操作系统，它并不像 windows 那样，用<strong>空文件</strong>覆盖有内容的文件夹时，提供「合并」的选项。
+如果有更新 Squirrel 版本的需求，切记先把其中的「librime」和「plum」这两个<strong>空文件</strong>夹删掉，再覆盖到本地。</p>
+
+<h2 id="编译">编译</h2>
+
+<p>从终端进入「Squirrel」文件夹下，方式就是在「Squirrel」文件夹下「右键」-「新建位于文件夹位置的终端窗口」。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo xcode-select --reset
+xcode-select --install
+curl -fsSL https://git.io/rime-install | bash -s -- :preset
+cd librime
+make xcode/thirdparty
+make xcode
+cd ..
+cd plum
+bash rime-install :preset
+cd ..
+make deps
+make
+</code></pre></div></div>
+
+<p>最终，在「Squirrel」文件夹这个代码主目录下，有「build/Release/Squirrel.app」，在「Squirrel.app」上右键：</p>
+
+<blockquote>
+  <p>显示包内容</p>
+</blockquote>
+
+<p>进入「Contents/SharedSupport」下，为所欲为一番。</p>
+
+<p>发泄完毕之后，在「Squirrel」文件夹这个代码主目录下，有「package」，这个是封包脚本存放处。从终端进入它里面：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./make_package
+</code></pre></div></div>
+
+<p>然后，将会生成「Squirrel.pkg」，这是安装包。</p>
+
+<p>由于编译进了 librime-lua，所以支持 rime.lua 脚本。</p>
+
+<p>但是，需要手动将它添加到「用户文件夹」下使用。</p>
+
+<p>理论上应该可以在「make_package」这个步骤时，做一次性封包，在当前登录用户的资源库目录下，生成「Rime」这个用户文件夹，然后放入「rime.lua」。
+这样就实现了在安装主程序时，同时做好 lua 脚本的配置工作。</p>
+
+<p>但是，对于 MacOS 的 Pkg 封包步聚，我是真的不懂。</p>
+
+<h2 id="文件列表">文件列表</h2>
+
+<p>所以，98五笔资源库中，对于「鼠须管」的维护，文件清单是以下 3 个：</p>
+
+<ul>
+  <li>98WB-0.otf</li>
+  <li>Squirrel.pkg</li>
+  <li>rime.lua</li>
+</ul>
+
+
+            </div>
+        </div>
+        <div class="nickname">
+            乌臼树
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+<script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+<link rel="stylesheet" href="/assets/css/gruvbox.dark.css">
+<title>同文编译手记</title>
+
+        
+        <link rel="stylesheet" href="http://localhost:4000/styles/font.css">
+        <link rel="stylesheet" media="screen and (min-width: 600px)" href="http://localhost:4000/styles/post.css">
+        <link rel="stylesheet" media="screen and (max-width: 600px)" href="http://localhost:4000/styles/post_mobile.css">
+        <link rel="stylesheet" media="screen and (min-width: 600px)" href="http://localhost:4000/styles/navigatebar.css">
+        <link rel="stylesheet" media="screen and (max-width: 600px)" href="http://localhost:4000/styles/navigatebar_mobile.css">
+        <link rel="stylesheet" href="http://localhost:4000/theme/highlight.css">
+    </head>
+    <body>
+        <div class="navigatebar">
+    <div class="navigatebar-button navigatebar-mine">
+        <a href="http://localhost:4000/index.html">乌臼树</a>
+    </div>
+    <div class="navigatebar-slogan">
+        「日暮伯劳飞，风吹乌臼树」
+    </div>
+
+    <div class="navigatebar-button">
+        <a href="http://localhost:4000/tags.html">Tags</a>
+    </div>
+
+    <div class="navigatebar-button navigatebar-about">
+        <a href="http://localhost:4000/about.html">About</a>
+    </div>
+</div>
+
+        <div class="content-area">
+            <div class="title">
+                同文编译手记
+            </div>
+            <div class="category-area">
+                「
+                <a href="http://localhost:4000/tags.html#RIME">
+                    <div class="category">
+                        RIME
+                    </div>
+                </a>
+                」
+            </div>
+            <div class="char-counter">
+                浏览<span data-hk-page="current"> - </span>次 字数5724 2019-05-16
+            </div>
+            <div class="content">
+                <h3 id="工具准备">工具准备</h3>
+
+<ul>
+  <li><a href="http://releases.ubuntu.com/19.04/ubuntu-19.04-desktop-amd64.iso">Ubuntu 19.04</a></li>
+  <li><a href="https://dl.google.com/dl/android/studio/ide-zips/3.4.0.18/android-studio-ide-183.5452501-linux.tar.gz">Android studio</a></li>
+  <li><a href="https://downloads.gradle.org/distributions/gradle-5.2.1-all.zip">Gradle</a></li>
+  <li><a href="https://github.com/google/glog/archive/v0.4.0.tar.gz">Glog</a></li>
+  <li><a href="https://github.com/google/googletest/archive/release-1.8.1.tar.gz">Gtest</a></li>
+</ul>
+
+<h3 id="环境准备">环境准备</h3>
+
+<p>一：安装 Java 支持</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install openjdk-11-jdk openjdk-11-jre
+</code></pre></div></div>
+<p>如上，将安装 Java 支持到系统，接下来，为之添加「环境变量」</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit ~/.bashrc
+</code></pre></div></div>
+<p>在打开的文件末尾，添加如下内容，如有疑虑，可与之前的内容之间留一些空格,在这里，顺手把「gradle」需要的环境变量也添加上去。</p>
+
+<p>下面第一行路径中的「pc」是我的当前登录到 Ubuntu 的用户名，你需要改成你的，这里不支持相对路径。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export ANDROID_HOME="/home/pc/Android/Sdk"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export PATH=$PATH:/opt/gradle-5.2.1/bin:${JAVA_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/ndk-bundle
+</code></pre></div></div>
+<p>在终端中，用下面的命令，刷新一次「环境变量」：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source .bashrc
+</code></pre></div></div>
+<p>然后，验证 Java 支持：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java --version
+</code></pre></div></div>
+<p>弹出 Java 版本，则安装 Java 环境成功。</p>
+
+<p>二：安装 Gradle</p>
+
+<p>刚才，已经在添加了「 /opt/gradle-5.2.1/bin 」，把预备好的包解压，取出里面的「 gradle-5.2.1 」（里面有「 bin 」的子目录），放到系统的 opt 目录里。因为 opt 的权限默认不可写，先给它换换权限：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod -R 777 /opt
+</code></pre></div></div>
+<p>这样一来，Gradle 的路径就放好了，现在验证一下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gradle -v
+</code></pre></div></div>
+<p>出现版本信息，则证明成功了。</p>
+
+<p>三：编译 Glog 和 Gtest</p>
+
+<p>安装一下其它依赖：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install cmake python git libyaml-cpp-dev -y
+</code></pre></div></div>
+
+<p>分别——分别——分别——在两者的文件夹内打开终端，以下命令编译它们</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir build
+cd build
+cmake ..
+make
+sudo make install
+</code></pre></div></div>
+<h3 id="部署-sdk">部署 SDK</h3>
+
+<p>这里，需要 VPN 环境，连好 VPN，我们开始了。
+把预备好的「Android studio」解压出「Android studio」文件夹，然后放到系统的 opt 目录里。进入它的子目录——bin文件夹下，打开终端：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./studio.sh
+</code></pre></div></div>
+<p>将会弹出绿色的ico在任务栏里，提示你对「Android studio」做一些初始化的设置。</p>
+
+<p>「Do not import settings」⇒ 「standard」⇒ 一路「next」⇒ 下载一些工具 ⇒ 等待完成 ⇒ 「Android SDK is up to date」 ⇒ 「Finish」</p>
+
+<p>到此 SDK 部署成功，关掉该程序。</p>
+
+<h3 id="拉代码">拉代码</h3>
+
+<p>在「文档」中新建「trime」文件夹，进入其中，打开终端：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone --recursive https://github.com/osfans/trime.git trime
+</code></pre></div></div>
+
+<p>这个过程会很久，因为大约会拉下来 1.5 GB 数据。</p>
+
+<p>打开文本编辑器，输入如下内容，保存为「98-trime.sh」,再把这个脚本文件放到代码的根目录下面：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">my_name_s</span><span class="o">=</span><span class="s2">"五笔98版"</span>
+<span class="nv">my_name_t</span><span class="o">=</span><span class="s2">"五筆98版"</span>
+<span class="nv">my_folder</span><span class="o">=</span><span class="s2">"WB98"</span>
+<span class="nv">my_package</span><span class="o">=</span><span class="s2">"trime_3"</span>
+<span class="nb">echo</span> <span class="s2">"『包名』和『存储目录』同时修改过后，才能与原版本存。"</span>
+<span class="nb">echo</span> <span class="s2">"修改后的『简体名称』是：</span><span class="k">${</span><span class="nv">my_name_s</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"修改后的『繁体名称』是：</span><span class="k">${</span><span class="nv">my_name_t</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"修改后的『存储目录』是：</span><span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"修改后的『包名』是：</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"修改 Makefile 配置文件的『默认路径』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/</span><span class="se">\/</span><span class="s2">rime</span><span class="se">\/</span><span class="s2">/</span><span class="se">\/</span><span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span><span class="se">\/</span><span class="s2">/g"</span> ./Makefile
+<span class="nb">echo</span> <span class="s2">"修改 build.gradle 配置文件的『包名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/build.gradle
+<span class="nb">echo</span> <span class="s2">"修改『包目录』。"</span>
+<span class="nb">mv</span> ./app/src/main/java/com/osfans/trime ./app/src/main/java/com/osfans/<span class="k">${</span><span class="nv">my_package</span><span class="k">}</span>
+<span class="nb">mv</span> ./app/src/main/assets/rime ./app/src/main/assets/<span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span>
+<span class="nb">echo</span> <span class="s2">"修改 AndroidManifest 中的『包名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/AndroidManifest.xml
+<span class="nb">echo</span> <span class="s2">"修改 JAVA 中的『包名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/java/com/osfans/<span class="k">${</span><span class="nv">my_package</span><span class="k">}</span>/enums/<span class="k">*</span>.java
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/java/com/osfans/<span class="k">${</span><span class="nv">my_package</span><span class="k">}</span>/<span class="k">*</span>.java
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/</span><span class="se">\"</span><span class="s2">rime/</span><span class="se">\"</span><span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/java/com/osfans/<span class="k">${</span><span class="nv">my_package</span><span class="k">}</span>/ResetDialog.java
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/</span><span class="se">\"</span><span class="s2">rime</span><span class="se">\"</span><span class="s2">/</span><span class="se">\"</span><span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span><span class="se">\"</span><span class="s2">/g"</span> ./app/src/main/java/com/osfans/<span class="k">${</span><span class="nv">my_package</span><span class="k">}</span>/Config.java
+<span class="nb">echo</span> <span class="s2">"修改 CMakeLists.txt 中的『类名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/</span><span class="se">\/</span><span class="s2">trime</span><span class="se">\/</span><span class="s2">/</span><span class="se">\/</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="se">\/</span><span class="s2">/g"</span> ./app/src/main/jni/CMakeLists.txt
+<span class="nb">echo</span> <span class="s2">"修改『软件名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/同文输入法/</span><span class="k">${</span><span class="nv">my_name_s</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/res/values-zh-rCN/strings.xml
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/同文輸入法/</span><span class="k">${</span><span class="nv">my_name_t</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/res/values-zh-rTW/strings.xml
+<span class="nb">echo</span> <span class="s2">"修改 donottranslate.xml 文件的『默认路径』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/sdcard</span><span class="se">\/</span><span class="s2">rime/sdcard</span><span class="se">\/</span><span class="k">${</span><span class="nv">my_folder</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/res/values/donottranslate.xml
+<span class="nb">echo</span> <span class="s2">"修改 xml 文件夹的『包名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/res/xml/method.xml
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/&lt;com.osfans.trime./&lt;com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">./g"</span> ./app/src/main/res/xml/prefs.xml
+<span class="nb">echo</span> <span class="s2">"修改 layout 文件夹的『包名称』。"</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/com.osfans.trime/com.osfans.</span><span class="k">${</span><span class="nv">my_package</span><span class="k">}</span><span class="s2">/g"</span> ./app/src/main/res/layout/<span class="k">*</span>.xml
+<span class="nb">unset </span>my_name_s
+<span class="nb">unset </span>my_name_t
+<span class="nb">unset </span>my_folder
+<span class="nb">unset </span>my_package
+<span class="nb">echo</span> <span class="s2">"修改完成，可以放入配置文件打包了！"</span>
+</code></pre></div></div>
+<p>这个「98-trime.sh」，是用来修改程序包名，及相关内容的。所以，在代码包的根目录下，打开终端：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod 777 ./98-trime.sh
+./98-trime.sh
+</code></pre></div></div>
+<p>应该会显示如下内容：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./98-trime.sh
+『包名』和『存储目录』同时修改过后，才能与原版本存。
+修改后的『简体名称』是：五笔98版
+修改后的『繁体名称』是：五筆98版
+修改后的『存储目录』是：WB98
+修改后的『包名』是：trime_3
+修改 Makefile 配置文件的『默认路径』。
+修改 build.gradle 配置文件的『包名称』。
+修改『包目录』。
+修改 AndroidManifest 中的『包名称』。
+修改 JAVA 中的『包名称』。
+修改 CMakeLists.txt 中的『类名称』。
+修改『软件名称』。
+修改 donottranslate.xml 文件的『默认路径』。
+修改 xml 文件夹的『包名称』。
+修改 layout 文件夹的『包名称』。
+修改完成，可以放入配置文件打包了！
+</code></pre></div></div>
+
+<p>改完代码之后，我们开始用「Android studio」对代码进行依赖检测。</p>
+
+<p>打开「Android studio」的方法，就是进入到「Android studio」目录下的「bin」文件中，以「studio.sh」这个shell脚本调用，完整命令如下，在终端中输入：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/opt/android-studio/bin/studio.sh
+</code></pre></div></div>
+<p>可能会有提示「Failed to load module “canberra-gtk-module”」，不用管它，这是程序外观的GTK组件不全，不影响编译工具的使用。</p>
+
+<p>在弹出的窗中，用「open an existing Android Studio project」，一步步找到你在「文档」下建的「trime」，在「trime」下拉下来的代码，有个「绿色」的「trime」图标，选中它，点「OK」确认。</p>
+
+<p>A : 修改 VM 参数</p>
+
+<p>在程序的标题栏中：Help ⇒ Edit Custom VM Options ⇒ Create ? ⇒ Ctreat !</p>
+
+<p>填入：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-Xms256m
+-Xmx8192m
+-XX:ReservedCodeCacheSize=2048m
+-XX:+UseCompressedOops
+-XX:MaxPermSize=4096m
+</code></pre></div></div>
+<p>填完之后，ctrl + S 保存一下。</p>
+
+<p>然后，要退出「Android studio」，并重新打开，以让刚才的参数生效，这个参数非常重要，关系着编译的进度能否完成。</p>
+
+<p>重开之后，再到 Help 中的 VM 项中看一下，刚才的填的数还在不在。</p>
+
+<p>B : 分析依赖</p>
+
+<p>在标题栏中有「File」，点来有下弹菜单，其中有「Sync Project with Gradle Files」，点这里，会进行依赖检测，然后，按程序下方的分栏——「Sync」所指示，点击安装若干具体版本的依赖细节。</p>
+
+<p>比如「Install NDK」，这个会很大，785 MB 。这些都是从「dl.google」上下载的，所以，你懂的，没有 VPN 是不行的。</p>
+
+<p>还可能会要求「Install CMake 3.10.2」。</p>
+
+<p>一波操作之后，注意，可能会弹出 「Android Gradle Plugin Update Recommended」的窗口，它是要求你升级 Gradle 版本的，不要升，要点「Don’t remind me again for this project」。</p>
+
+<p>如果升了，可能会中途报错。</p>
+
+<p>拒绝了这个升级建议之后，「Android studio」会预编译一些文件索引，注意看「Android studio」的底边框，有「Build Symbols…」的提示，你用鼠标点一下这里，会显示详情。</p>
+
+<p>让它建一下索引吧，这个过程会很慢，得等。</p>
+
+<p>索引建完之后，我们来生成签名文件。</p>
+
+<h3 id="生成签名文件">生成签名文件</h3>
+
+<p>标题栏中「Build」-「Generate Signed Bundle / APK …」-「APK」-「Next」-「Key store path」（Create new）。</p>
+
+<p>接下来，弹出一个「New Key Store」：</p>
+
+<ul>
+  <li>Key store path : 点右边文件图标，会引导你存往的路径，你在代码的根目录下，新建一个「key」文件夹，选中这个「key」文件夹，并在下方的「File name」输入框中，输入「98wb」，当然，你还能看到其后缀是固定的，是「jks」。</li>
+  <li>所有的 Password 统统是「98wb98wb」，记得「Alias」的值是「key0」，至于下方的「Certificate」，统统填成「98wb」，比较好记。</li>
+  <li>勾选「Remember passwords」，然后「next」。</li>
+  <li>勾选「V1」和「V2」，再点「Finish」。</li>
+</ul>
+
+<p>然后，程序下框处，会有「Gradle Build Running」的字样，出现这个，代表签名文件已做好了，现在关掉程序。我们要编译软件了。</p>
+
+<h3 id="写入签名引导">写入签名引导</h3>
+
+<p>代码根目录下，终端输入：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit ./gradle.properties
+</code></pre></div></div>
+<p>写入：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>storePassword=98wb98wb
+keyPassword=98wb98wb
+keyAlias=key0
+storeFile=key/98wb.jks
+</code></pre></div></div>
+<p>保存。</p>
+
+<h3 id="写入路径引导">写入路径引导</h3>
+
+<p>代码根目录下，终端输入：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit ./local.properties
+</code></pre></div></div>
+
+<p>写入：</p>
+
+<p>下面两行路径中的「pc」是我的当前登录到 Ubuntu 的用户名，你需要改成你的，这里不支持相对路径。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ndk.dir=/home/pc/Android/Sdk/ndk-bundle
+sdk.dir=/home/pc/Android/Sdk
+</code></pre></div></div>
+
+<h3 id="编译">编译</h3>
+
+<p>生成「debug.apk」可以直接用，也可以生成「release.apk」，都能直接用。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make debug
+</code></pre></div></div>
+<p>或者</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make release
+</code></pre></div></div>
+<h3 id="配置文件定义">配置文件定义</h3>
+
+<ul>
+  <li>码表文件: /trime/app/src/main/assets/WB98</li>
+  <li>默认项目：/trime/app/src/main/res/xml/prefs.xml</li>
+</ul>
+
+<p>清空默认，放入咱们的码表文件。而各默认设定，则打开「prefs.xml」，就可以魔改了，比如「defaultValue」映入眼帘……</p>
+
+<h3 id="提示">提示</h3>
+
+<p>最好先在「编译」的步骤里，都各给编译一次，，第一次编译会有些慢。而程序编译通过了，我们再放入「码表文件」，以及修改「prefs.xml」，搞完这些自定义后，做第二重编译打包工作——这时，会很快。</p>
+
+<p>Good Luck !</p>
+
+
+            </div>
+        </div>
+        <div class="nickname">
+            乌臼树
+        </div>
+
+    </body>
+</html>

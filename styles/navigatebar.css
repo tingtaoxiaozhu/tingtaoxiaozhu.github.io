@@ -29,10 +29,12 @@
     text-align: center;
     color: #888;
     font-size: 18px;
+    font-family: titleFont;	
 }
 
 .navigatebar-mine {
     margin-left: 20px;
+    font-family: titleFont;	
 }
 
 .navigatebar-about {

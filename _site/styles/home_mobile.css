@@ -43,6 +43,7 @@ a {
     overflow-y: scroll;
     padding-left: 10px;
     padding-right: 10px;
+    font-family: codeFont,zgFont;
 }
 
 .post-line {
@@ -89,7 +90,7 @@ a {
     font-weight: bold;
     color: #666;
     flex: 1;
-    font-family: angelinaFont;
+    font-family: titleFont;
 }
 
 .topbar-button {
@@ -105,6 +106,7 @@ a {
     text-align: center;
     color: #B4B4B4;
     margin-bottom: 100px;
+    font-family: titleFont;	
 }
 
 .topbar-button a {
