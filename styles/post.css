@@ -57,6 +57,8 @@ a {
     font-family: codeFont,zgFont;
 }
 
+
+
 li>img,
 p>img {
     margin: 0 auto;
@@ -64,15 +66,15 @@ p>img {
     max-width: 90%;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
 }
 
 .nickname {
     font-size: 16px;
     color: #AAA;
-    font-family: titleFont;
+    font-family: mottoFont;
     margin-bottom: 20px;
 }
 
@@ -107,11 +109,11 @@ code {
 
 table {
     border-collapse: collapse;
-    border-spacing: 0;
+    border-spacing: 2;
     border: 1px solid #AAA;
 
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 tbody tr:nth-child(even) {

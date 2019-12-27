@@ -39,7 +39,7 @@ li {
 .nickname {
     font-size: 16px;
     color: #AAA;
-    font-family: titleFont;
+    font-family: mottoFont;
     margin-bottom: 20px;
 }
 
@@ -71,7 +71,7 @@ li {
     text-align: center;
     border-top: 2px solid #AAA;
     border-bottom: 2px solid #AAA;
-    font-family: angelinaFont;
+    font-family: titleFont;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;

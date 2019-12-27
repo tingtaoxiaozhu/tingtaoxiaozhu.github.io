@@ -18,7 +18,7 @@ incremental: true
 plugins:
   - jekyll-feed
   - jekyll-paginate
-paginate: 50
+paginate: 100
 paginate_path: "page:num"
 
 excerpt_separator:  '<!-- more -->'
